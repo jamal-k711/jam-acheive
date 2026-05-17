@@ -1,0 +1,1611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Amir Jamal Ali Khan — Achievement Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --color-navy: #0D1B2A;
+      --color-navy-mid: #142233;
+      --color-navy-light: #1C2F45;
+      --color-orange: #FF7A1A;
+      --color-orange-dim: rgba(255, 122, 26, 0.12);
+      --color-white: #FFFFFF;
+      --color-off-white: #F4F6F9;
+      --color-text-muted: #8A9BB0;
+      --color-divider: rgba(255, 255, 255, 0.08);
+      --font-display: 'Syne', sans-serif;
+      --font-body: 'DM Sans', sans-serif;
+      --section-padding: 100px 0;
+      --container-width: 1140px;
+      --radius-card: 16px;
+      --radius-pill: 100px;
+      --code-class: #7EC8E3;
+      --code-string: #A8D5A2;
+      --code-comment: #5A6F84;
+    }
+    [data-theme="light"] {
+      --color-navy: #FFFFFF;
+      --color-navy-mid: #F4F6F9;
+      --color-navy-light: #FFFFFF;
+      --color-white: #0D1B2A;
+      --color-text-muted: #6B7F94;
+      --color-divider: rgba(0, 0, 0, 0.08);
+      --color-orange-dim: rgba(255, 122, 26, 0.08);
+    }
+    [data-theme="light"] nav,
+    [data-theme="light"] .nav-overlay {
+      background: rgba(255, 255, 255, 0.85);
+    }
+    [data-theme="light"] .nav-hamburger span {
+      background: var(--color-white);
+    }
+    [data-theme="light"] .timeline-dot {
+      border-color: var(--color-navy);
+    }
+    [data-theme="light"] .timeline-dot-mobile {
+      border-color: var(--color-navy);
+    }
+    [data-theme="light"] .culture-card-bg-overlay {
+      background: rgba(255, 255, 255, 0.75);
+    }
+    [data-theme="light"] .hero-name,
+    [data-theme="light"] .project-title,
+    [data-theme="light"] .timeline-title,
+    [data-theme="light"] .culture-title,
+    [data-theme="light"] .footer-name,
+    [data-theme="light"] .section-heading,
+    [data-theme="light"] .skills-category h4,
+    [data-theme="light"] .abcd-achievement,
+    [data-theme="light"] .project-stats-row span,
+    [data-theme="light"] .btn-secondary {
+      color: var(--color-white);
+    }
+    [data-theme="light"] .btn-secondary {
+      border-color: var(--color-divider);
+    }
+    [data-theme="light"] .project-stats-row span {
+      background: rgba(255, 122, 26, 0.08);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      background: var(--color-navy);
+      color: var(--color-white);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    .container {
+      width: 100%;
+      max-width: var(--container-width);
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    section { padding: var(--section-padding); }
+
+    /* ===== ANIMATION SYSTEM ===== */
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .animate-on-scroll.visible { opacity: 1; transform: translateY(0); }
+    .animate-on-scroll:nth-child(1) { transition-delay: 0.0s; }
+    .animate-on-scroll:nth-child(2) { transition-delay: 0.1s; }
+    .animate-on-scroll:nth-child(3) { transition-delay: 0.2s; }
+    .animate-on-scroll:nth-child(4) { transition-delay: 0.3s; }
+    .animate-on-scroll:nth-child(5) { transition-delay: 0.4s; }
+    .animate-on-scroll:nth-child(6) { transition-delay: 0.5s; }
+
+    /* ===== SECTION LABELS ===== */
+    .section-label {
+      font: 600 11px/1 var(--font-display);
+      color: var(--color-orange);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 12px;
+    }
+    .section-heading {
+      font: 700 32px/1.2 var(--font-display);
+      color: var(--color-white);
+      margin-bottom: 40px;
+    }
+    @media (min-width: 768px) {
+      .section-heading { font-size: 48px; }
+    }
+
+    /* ===== NAV ===== */
+    nav {
+      position: fixed; top: 0; width: 100%; z-index: 100;
+      background: rgba(13, 27, 42, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--color-divider);
+      padding: 20px 0;
+      transition: padding 0.3s ease;
+    }
+    nav.scrolled { padding: 14px 0; }
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      max-width: var(--container-width); margin: 0 auto; padding: 0 20px;
+    }
+    .nav-left { display: flex; align-items: center; gap: 12px; }
+    .nav-avatar-img {
+      width: 36px; height: 36px; border-radius: 50%;
+      object-fit: cover; border: 2px solid var(--color-orange);
+    }
+    .nav-avatar-monogram {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: var(--color-orange); color: var(--color-white);
+      font: 700 14px/1 var(--font-display);
+      display: none; align-items: center; justify-content: center;
+      border: 2px solid var(--color-orange);
+    }
+    .nav-links { display: none; gap: 28px; align-items: center; }
+    .nav-links a {
+      font: 500 13px/1 var(--font-body);
+      color: var(--color-text-muted);
+      transition: color 0.25s ease; letter-spacing: 0.02em;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--color-orange); }
+    .nav-hamburger {
+      display: flex; flex-direction: column; gap: 5px; cursor: pointer;
+      background: none; border: none; padding: 4px; z-index: 101;
+    }
+    .nav-hamburger span {
+      display: block; width: 22px; height: 2px;
+      background: var(--color-white); border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+    .nav-hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .nav-hamburger.active span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+    @media (min-width: 1024px) {
+      .nav-links { display: flex; }
+      .nav-hamburger { display: none; }
+    }
+
+    /* Mobile overlay */
+    .nav-overlay {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: var(--color-navy);
+      z-index: 99; display: flex; align-items: center; justify-content: center;
+      opacity: 0; visibility: hidden;
+      transition: opacity 0.35s ease, visibility 0.35s ease;
+    }
+    .nav-overlay.open { opacity: 1; visibility: visible; }
+    .nav-overlay-links { display: flex; flex-direction: column; gap: 32px; text-align: center; }
+    .nav-overlay-links a {
+      font: 600 24px/1 var(--font-display);
+      color: var(--color-white);
+      transition: color 0.25s;
+    }
+    .nav-overlay-links a:hover { color: var(--color-orange); }
+
+    /* ===== HERO ===== */
+    #hero {
+      min-height: 100vh; display: flex; align-items: center; justify-content: center;
+      text-align: center; position: relative; overflow: hidden;
+      padding-top: 80px;
+    }
+    #hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      opacity: 0.04;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      background-repeat: repeat; background-size: 256px 256px;
+      pointer-events: none;
+    }
+    #hero::after {
+      content: ''; position: absolute; bottom: 80px; right: 10%;
+      width: 200px; height: 2px;
+      background: var(--color-orange);
+      transform: rotate(-15deg); opacity: 0.3;
+      pointer-events: none;
+    }
+    .hero-content { position: relative; z-index: 1; max-width: 720px; padding: 0 20px; }
+    .hero-avatar {
+      width: 80px; height: 80px; border-radius: 50%;
+      border: 3px solid var(--color-orange);
+      box-shadow: 0 0 0 6px rgba(255, 122, 26, 0.15);
+      object-fit: cover; margin: 0 auto 20px;
+    }
+    .hero-avatar-monogram {
+      width: 80px; height: 80px; border-radius: 50%;
+      background: var(--color-orange); color: var(--color-white);
+      font: 800 32px/1 var(--font-display);
+      display: none; align-items: center; justify-content: center;
+      margin: 0 auto 20px; border: 3px solid var(--color-orange);
+      box-shadow: 0 0 0 6px rgba(255, 122, 26, 0.15);
+    }
+    @media (min-width: 768px) {
+      .hero-avatar, .hero-avatar-monogram { width: 88px; height: 88px; }
+      .hero-avatar-monogram { font-size: 32px; }
+    }
+    .hero-badge {
+      display: inline-block;
+      padding: 8px 20px;
+      background: var(--color-orange-dim);
+      color: var(--color-orange);
+      border-radius: var(--radius-pill);
+      font: 600 12px/1 var(--font-body);
+      margin-bottom: 20px;
+      letter-spacing: 0.03em;
+    }
+    .hero-name {
+      font: 800 40px/1.1 var(--font-display);
+      color: var(--color-white);
+      margin-bottom: 16px;
+      white-space: nowrap;
+    }
+    @media (min-width: 768px) {
+      .hero-name { font-size: 56px; }
+    }
+    @media (min-width: 1024px) {
+      .hero-name { font-size: 64px; }
+    }
+    .hero-typewriter {
+      font: 500 16px/1.6 var(--font-body);
+      color: var(--color-text-muted);
+      min-height: 52px;
+      margin-bottom: 32px;
+    }
+    @media (min-width: 768px) {
+      .hero-typewriter { font-size: 18px; }
+    }
+    .typewriter-wrap {
+      display: inline-block;
+      position: relative;
+    }
+    .typewriter-wrap::after {
+      content: '|';
+      color: var(--color-orange);
+      animation: blink 0.7s step-end infinite;
+    }
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+    #typewriterText {
+      display: inline;
+      min-height: 1.6em;
+    }
+    .hero-buttons {
+      display: flex; flex-wrap: wrap; gap: 16px; justify-content: center;
+    }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 14px 32px;
+      background: var(--color-orange); color: var(--color-white);
+      border-radius: var(--radius-pill);
+      font: 600 14px/1 var(--font-body);
+      border: none; cursor: pointer;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(255,122,26,0.3); }
+    .btn-secondary {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 14px 32px;
+      background: transparent; color: var(--color-white);
+      border: 1px solid var(--color-divider);
+      border-radius: var(--radius-pill);
+      font: 600 14px/1 var(--font-body);
+      cursor: pointer;
+      transition: border-color 0.25s ease, transform 0.25s ease;
+    }
+    .btn-secondary:hover { border-color: var(--color-orange); transform: translateY(-2px); }
+    .scroll-indicator {
+      position: absolute; bottom: 32px; left: 50%;
+      transform: translateX(-50%);
+      color: var(--color-text-muted);
+      animation: bounceArrow 2s ease infinite;
+    }
+    @keyframes bounceArrow {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(8px); }
+    }
+
+    /* ===== STATS ===== */
+    #stats { background: var(--color-navy-mid); }
+    .stats-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;
+    }
+    @media (min-width: 768px) {
+      .stats-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+    .stat-card {
+      padding: 28px 20px;
+      background: var(--color-navy-light);
+      border: 1px solid var(--color-divider);
+      border-radius: var(--radius-card);
+      text-align: center; position: relative; overflow: hidden;
+    }
+    @media (min-width: 768px) {
+      .stat-card { padding: 40px 32px; }
+    }
+    .stat-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: var(--color-orange);
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 0.6s ease;
+    }
+    .stat-card:hover::before { transform: scaleX(1); }
+    .stat-number {
+      font: 800 36px/1 var(--font-display);
+      color: var(--color-orange); display: block; margin-bottom: 8px;
+    }
+    @media (min-width: 768px) {
+      .stat-number { font-size: 56px; }
+    }
+    .stat-label {
+      font: 500 12px/1.4 var(--font-body);
+      color: var(--color-text-muted);
+      text-transform: uppercase; letter-spacing: 0.08em;
+    }
+    @media (min-width: 768px) {
+      .stat-label { font-size: 14px; }
+    }
+
+    /* ===== ABOUT ===== */
+    #about { background: var(--color-navy); }
+    .about-grid {
+      display: grid; grid-template-columns: 1fr; gap: 40px;
+      align-items: start;
+    }
+    @media (min-width: 1024px) {
+      .about-grid { grid-template-columns: 1fr 1fr; }
+    }
+    .about-text p {
+      font: 400 15px/1.8 var(--font-body);
+      color: var(--color-text-muted);
+      margin-bottom: 20px;
+    }
+    @media (min-width: 768px) {
+      .about-text p { font-size: 16px; }
+    }
+    .about-highlights {
+      list-style: none; margin-top: 16px;
+    }
+    .about-highlights li {
+      font: 400 14px/1.6 var(--font-body);
+      color: var(--color-text-muted);
+      padding-left: 20px; position: relative; margin-bottom: 8px;
+    }
+    .about-highlights li::before {
+      content: ''; position: absolute; left: 0; top: 8px;
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--color-orange);
+    }
+    .about-code-card {
+      padding: 32px 28px;
+      background: var(--color-navy-light);
+      border: 1px solid var(--color-divider);
+      border-radius: var(--radius-card);
+      font-family: 'DM Sans', monospace;
+      font-size: 13px; line-height: 1.8;
+      color: var(--color-text-muted);
+      overflow-x: auto;
+    }
+    .about-code-card .code-keyword { color: var(--color-orange); }
+    .about-code-card .code-class { color: var(--code-class); }
+    .about-code-card .code-string { color: var(--code-string); }
+    .about-code-card .code-comment { color: var(--code-comment); font-style: italic; }
+
+    /* ===== PROJECTS ===== */
+    #projects { background: var(--color-navy-mid); }
+    .project-card-large {
+      display: grid; grid-template-columns: 1fr; gap: 32px;
+      align-items: center; padding: 32px 24px;
+      background: var(--color-navy-light);
+      border: 1px solid var(--color-divider);
+      border-radius: 24px; margin-bottom: 24px;
+      transition: border-color 0.3s ease, transform 0.3s ease;
+    }
+    @media (min-width: 1024px) {
+      .project-card-large {
+        grid-template-columns: 1fr 1fr; gap: 60px;
+        padding: 60px; margin-bottom: 32px;
+      }
+      .project-card-large.reversed { direction: rtl; }
+      .project-card-large.reversed > * { direction: ltr; }
+    }
+    .project-card-large:hover {
+      border-color: rgba(255, 122, 26, 0.3);
+      transform: translateY(-4px);
+    }
+    .project-card-large .project-image {
+      border-radius: 16px; overflow: hidden;
+      background: var(--color-navy-mid);
+      aspect-ratio: 16/10; display: flex; align-items: center; justify-content: center;
+    }
+    .project-card-large .project-image img {
+      width: 100%; height: 100%; object-fit: cover;
+    }
+    .project-tag {
+      display: inline-block; padding: 4px 12px;
+      background: var(--color-orange-dim); color: var(--color-orange);
+      border-radius: var(--radius-pill);
+      font: 600 11px/1.6 var(--font-body); margin-bottom: 12px;
+    }
+    .project-title {
+      font: 700 22px/1.3 var(--font-display);
+      color: var(--color-white); margin-bottom: 6px;
+    }
+    @media (min-width: 768px) {
+      .project-title { font-size: 28px; }
+    }
+    .project-subhead {
+      font: 500 15px/1.4 var(--font-body);
+      color: var(--color-orange); margin-bottom: 16px;
+    }
+    .project-desc {
+      font: 400 14px/1.7 var(--font-body);
+      color: var(--color-text-muted); margin-bottom: 16px;
+    }
+    .project-features { margin-bottom: 16px; }
+    .project-stats-row {
+      display: flex; flex-wrap: wrap; gap: 16px;
+      font: 600 13px/1 var(--font-body);
+      color: var(--color-white); margin-bottom: 16px;
+    }
+    .project-stats-row span {
+      padding: 6px 14px;
+      background: var(--color-orange-dim);
+      border-radius: var(--radius-pill);
+    }
+    .project-link {
+      font: 600 13px/1 var(--font-body);
+      color: var(--color-orange);
+      display: inline-flex; align-items: center; gap: 6px;
+      transition: gap 0.25s;
+    }
+    .project-link:hover { gap: 10px; }
+
+    .project-cards-small {
+      display: grid; grid-template-columns: 1fr; gap: 20px;
+    }
+    @media (min-width: 768px) {
+      .project-cards-small { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (min-width: 1024px) {
+      .project-cards-small { grid-template-columns: repeat(3, 1fr); }
+    }
+    .project-card-small {
+      padding: 28px 24px;
+      background: var(--color-navy-light);
+      border: 1px solid var(--color-divider);
+      border-radius: var(--radius-card);
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    @media (min-width: 768px) {
+      .project-card-small { padding: 36px 28px; }
+    }
+    .project-card-small:hover {
+      border-color: rgba(255, 122, 26, 0.3);
+      transform: translateY(-4px);
+    }
+    .project-card-small .project-image-small {
+      width: 100%; height: 160px;
+      background: var(--color-navy-mid);
+      border-radius: 12px; margin-bottom: 16px;
+      display: flex; align-items: center; justify-content: center; overflow: hidden;
+    }
+    .project-card-small .project-image-small img {
+      width: 100%; height: 100%; object-fit: cover;
+    }
+    .feature-pill {
+      display: inline-block; padding: 4px 12px;
+      background: var(--color-orange-dim); color: var(--color-orange);
+      border-radius: var(--radius-pill);
+      font: 600 11px/1.6 var(--font-body); margin: 3px;
+    }
+
+    /* ===== TIMELINE ===== */
+    #timeline { background: var(--color-navy); }
+    .timeline-wrapper { position: relative; }
+    .timeline-line {
+      display: none;
+    }
+    @media (min-width: 768px) {
+      .timeline-line {
+        display: block;
+        position: absolute; top: 0; bottom: 0; left: 50%;
+        width: 1px; background: var(--color-divider); transform: translateX(-50%);
+      }
+    }
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0; align-items: start; margin-bottom: 32px;
+      position: relative; padding-left: 32px;
+    }
+    @media (min-width: 768px) {
+      .timeline-item {
+        grid-template-columns: 1fr 60px 1fr;
+        margin-bottom: 48px; padding-left: 0;
+      }
+      .timeline-item:nth-child(even) .timeline-card { grid-column: 3; }
+      .timeline-item:nth-child(even) .timeline-spacer { grid-column: 1; }
+    }
+    .timeline-dot {
+      display: none;
+    }
+    @media (min-width: 768px) {
+      .timeline-dot {
+        display: block;
+        width: 16px; height: 16px; border-radius: 50%;
+        background: var(--color-orange);
+        border: 3px solid var(--color-navy);
+        box-shadow: 0 0 0 4px rgba(255, 122, 26, 0.25);
+        margin: 20px auto 0; position: relative; z-index: 1;
+      }
+    }
+    @media (max-width: 767px) {
+      .timeline-dot-mobile {
+        position: absolute; left: 0; top: 22px;
+        width: 12px; height: 12px; border-radius: 50%;
+        background: var(--color-orange);
+        border: 2px solid var(--color-navy);
+        box-shadow: 0 0 0 3px rgba(255, 122, 26, 0.25);
+      }
+      .timeline-item::before {
+        content: ''; position: absolute; left: 5px; top: 0; bottom: -16px;
+        width: 1px; background: var(--color-divider);
+      }
+      .timeline-item:last-child::before { display: none; }
+    }
+    .timeline-card {
+      padding: 24px 20px;
+      background: var(--color-navy-light);
+      border: 1px solid var(--color-divider);
+      border-radius: var(--radius-card);
+      transition: border-color 0.3s;
+    }
+    @media (min-width: 768px) {
+      .timeline-card { padding: 28px 32px; }
+    }
+    .timeline-card:hover { border-color: rgba(255, 122, 26, 0.4); }
+    .timeline-month {
+      font: 700 12px/1 var(--font-display);
+      color: var(--color-orange); text-transform: uppercase;
+      letter-spacing: 0.1em; margin-bottom: 8px;
+    }
+    .timeline-title {
+      font: 700 18px/1.3 var(--font-display);
+      color: var(--color-white); margin-bottom: 10px;
+    }
+    .timeline-body {
+      font: 400 14px/1.7 var(--font-body);
+      color: var(--color-text-muted);
+    }
+
+    /* ===== SKILLS ===== */
+    #skills { background: var(--color-navy-mid); }
+    .skills-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px;
+    }
+    @media (min-width: 1024px) {
+      .skills-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+    .skills-category h4 {
+      font: 600 14px/1 var(--font-display);
+      color: var(--color-white);
+      text-transform: uppercase; letter-spacing: 0.08em;
+      margin-bottom: 16px; padding-bottom: 12px;
+      border-bottom: 1px solid var(--color-divider);
+    }
+    .skill-pill {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 8px 16px; margin: 4px;
+      border: 1px solid var(--color-divider);
+      border-radius: var(--radius-pill);
+      font: 500 13px/1 var(--font-body);
+      color: var(--color-text-muted);
+      transition: all 0.25s ease; cursor: default;
+    }
+    .skill-pill:hover {
+      background: var(--color-orange-dim);
+      border-color: var(--color-orange);
+      color: var(--color-orange);
+    }
+    .skill-pill i { width: 14px; height: 14px; stroke-width: 1.5; }
+
+    /* ===== ACTIVITIES ===== */
+    #activities { background: var(--color-navy); }
+    .culture-grid {
+      display: grid; grid-template-columns: 1fr; gap: 20px;
+    }
+    @media (min-width: 768px) {
+      .culture-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    .culture-card {
+      padding: 28px 24px;
+      background: var(--color-navy-light);
+      border: 1px solid var(--color-divider);
+      border-radius: var(--radius-card);
+      position: relative; overflow: hidden;
+    }
+    @media (min-width: 768px) {
+      .culture-card { padding: 36px 32px; }
+    }
+    .culture-card::after {
+      content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
+      background: var(--color-orange);
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 0.4s ease;
+    }
+    .culture-card:hover::after { transform: scaleX(1); }
+    .culture-icon { font-size: 28px; margin-bottom: 14px; display: block; }
+    @media (min-width: 768px) {
+      .culture-icon { font-size: 36px; }
+    }
+    .culture-date {
+      font: 600 11px/1 var(--font-body); color: var(--color-orange);
+      text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 10px;
+    }
+    .culture-title {
+      font: 700 18px/1.3 var(--font-display); color: var(--color-white);
+      margin-bottom: 10px;
+    }
+    .culture-body {
+      font: 400 14px/1.7 var(--font-body); color: var(--color-text-muted);
+    }
+    .culture-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      font: 600 12px/1 var(--font-body); color: var(--color-orange);
+      margin-top: 14px; transition: gap 0.25s;
+    }
+    .culture-link:hover { gap: 10px; }
+    .culture-card-bg {
+      position: absolute; inset: 0; opacity: 0.08;
+      background-size: cover; background-position: center;
+    }
+    .culture-card-bg-overlay {
+      position: absolute; inset: 0;
+      background: rgba(13, 27, 42, 0.75);
+    }
+    .culture-card > *:not(.culture-card-bg):not(.culture-card-bg-overlay) {
+      position: relative; z-index: 1;
+    }
+
+    /* ===== ABCD REPORTS ===== */
+    #reports { background: var(--color-navy-mid); }
+    .reports-desc {
+      font: 400 15px/1.7 var(--font-body);
+      color: var(--color-text-muted);
+      margin-bottom: 32px; max-width: 720px;
+    }
+    .abcd-scroll-container {
+      display: flex; gap: 20px; overflow-x: auto;
+      scroll-snap-type: x mandatory; padding-bottom: 16px;
+      scrollbar-width: none; -ms-overflow-style: none;
+    }
+    .abcd-scroll-container::-webkit-scrollbar { display: none; }
+    .abcd-card {
+      min-width: 280px; padding: 24px 20px;
+      background: var(--color-navy-light);
+      border: 1px solid var(--color-divider);
+      border-radius: var(--radius-card);
+      flex-shrink: 0; scroll-snap-align: start;
+    }
+    @media (min-width: 768px) {
+      .abcd-card { min-width: 320px; padding: 32px 28px; }
+    }
+    .abcd-sprint-label {
+      font: 700 11px/1 var(--font-display);
+      color: var(--color-orange); text-transform: uppercase;
+      letter-spacing: 0.1em; margin-bottom: 14px;
+    }
+    .abcd-achievement {
+      font: 600 15px/1.4 var(--font-display); color: var(--color-white);
+      margin-bottom: 10px;
+    }
+    .abcd-benefit {
+      font: 400 13px/1.6 var(--font-body); color: var(--color-text-muted);
+      margin-bottom: 12px;
+    }
+    .abcd-concern {
+      font: 400 13px/1.5 var(--font-body); color: rgba(255, 122, 26, 0.6);
+      font-style: italic;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      padding: 60px 0 40px; text-align: center;
+      border-top: 1px solid var(--color-divider);
+    }
+    .footer-avatar {
+      width: 56px; height: 56px; border-radius: 50%;
+      object-fit: cover; border: 2px solid var(--color-orange);
+      margin: 0 auto 16px;
+    }
+    .footer-avatar-monogram {
+      width: 56px; height: 56px; border-radius: 50%;
+      background: var(--color-orange); color: var(--color-white);
+      font: 700 22px/1 var(--font-display);
+      display: none; align-items: center; justify-content: center;
+      margin: 0 auto 16px;
+    }
+    .footer-name {
+      font: 700 22px/1.3 var(--font-display); color: var(--color-white);
+      margin-bottom: 6px;
+    }
+    .footer-role {
+      font: 400 14px/1.4 var(--font-body); color: var(--color-text-muted);
+      margin-bottom: 24px;
+    }
+    .footer-divider {
+      width: 60px; height: 1px; background: var(--color-divider);
+      margin: 0 auto 24px;
+    }
+    .footer-tagline {
+      font: 600 15px/1 var(--font-display); color: var(--color-orange);
+      margin-bottom: 8px;
+    }
+    .footer-date {
+      font: 400 13px/1 var(--font-body); color: var(--color-text-muted);
+    }
+
+    /* ===== RESPONSIVE UTILITIES ===== */
+    @media (min-width: 1280px) {
+      .container { padding: 0 40px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== NAV ===== -->
+  <nav id="nav">
+    <div class="nav-inner">
+      <div class="nav-left">
+        <img src="https://media.licdn.com/dms/image/v2/D5603AQG5X1p3Z4y-Kw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1727863581815?e=1749686400&v=beta&t=0ZJasB1aQVPIFx9lyWWmQ41mF8HgKLITqNoqK_OI1qQ" alt="Amir Jamal Ali Khan"
+          onerror="this.style.display='none'; document.getElementById('nav-monogram').style.display='flex';"
+          class="nav-avatar-img" />
+        <div id="nav-monogram" class="nav-avatar-monogram">JA</div>
+      </div>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#timeline">Timeline</a>
+        <a href="#skills">Skills</a>
+        <a href="#activities">Activities</a>
+      </div>
+      <div style="display:flex;align-items:center;gap:12px">
+        <button id="themeToggle" aria-label="Toggle theme" style="background:none;border:none;cursor:pointer;color:var(--color-text-muted);padding:4px;display:flex;transition:color 0.25s" onmouseover="this.style.color='var(--color-orange)'" onmouseout="this.style.color='var(--color-text-muted)'">
+          <i data-lucide="moon" id="themeIcon" style="width:18px;height:18px"></i>
+        </button>
+        <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile overlay -->
+  <div class="nav-overlay" id="navOverlay">
+    <div class="nav-overlay-links">
+      <a href="#about" class="overlay-link">About</a>
+      <a href="#projects" class="overlay-link">Projects</a>
+      <a href="#timeline" class="overlay-link">Timeline</a>
+      <a href="#skills" class="overlay-link">Skills</a>
+      <a href="#activities" class="overlay-link">Activities</a>
+    </div>
+  </div>
+
+  <!-- ===== HERO ===== -->
+  <section id="hero">
+    <div class="hero-content">
+      <img src="https://media.licdn.com/dms/image/v2/D5603AQG5X1p3Z4y-Kw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1727863581815?e=1749686400&v=beta&t=0ZJasB1aQVPIFx9lyWWmQ41mF8HgKLITqNoqK_OI1qQ" alt="Amir Jamal Ali Khan"
+        onerror="this.style.display='none'; document.getElementById('hero-monogram').style.display='flex';"
+        class="hero-avatar" />
+      <div id="hero-monogram" class="hero-avatar-monogram">JA</div>
+      <div class="hero-badge animate-on-scroll" style="transition-delay:0s">AI Engineer / Flutter Developer &commat; SpeedForce Digital</div>
+      <h1 class="hero-name animate-on-scroll" style="transition-delay:0.1s">Amir Jamal Ali Khan</h1>
+      <div class="hero-typewriter animate-on-scroll" style="transition-delay:0.2s">
+        <span class="typewriter-wrap">
+          <span id="typewriterText"></span>
+        </span>
+      </div>
+      <div class="hero-buttons animate-on-scroll" style="transition-delay:0.3s">
+        <a href="#projects" class="btn-primary">
+          View My Work
+          <i data-lucide="arrow-down" style="width:16px;height:16px"></i>
+        </a>
+        <a href="#reports" class="btn-secondary">
+          Download ABCD Reports
+          <i data-lucide="file-text" style="width:16px;height:16px"></i>
+        </a>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <i data-lucide="chevron-down" style="width:24px;height:24px"></i>
+    </div>
+  </section>
+
+  <!-- ===== STATS ===== -->
+  <section id="stats">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-card animate-on-scroll">
+          <span class="stat-number" data-target="5" data-suffix="+">0</span>
+          <span class="stat-label">Production Projects Delivered</span>
+        </div>
+        <div class="stat-card animate-on-scroll" style="transition-delay:0.1s">
+          <span class="stat-number" data-target="300" data-suffix="+">0</span>
+          <span class="stat-label">Screens Designed &amp; Redesigned</span>
+        </div>
+        <div class="stat-card animate-on-scroll" style="transition-delay:0.2s">
+          <span class="stat-number" data-target="1000" data-suffix="+">0</span>
+          <span class="stat-label">Localization Keys (EN/AR)</span>
+        </div>
+        <div class="stat-card animate-on-scroll" style="transition-delay:0.3s">
+          <span class="stat-number" data-target="45" data-suffix="+">0</span>
+          <span class="stat-label">Cloud Functions Deployed</span>
+        </div>
+        <div class="stat-card animate-on-scroll" style="transition-delay:0s">
+          <span class="stat-number" data-target="6">0</span>
+          <span class="stat-label">Months of Continuous Delivery</span>
+        </div>
+        <div class="stat-card animate-on-scroll" style="transition-delay:0.1s">
+          <span class="stat-number" data-target="4">0</span>
+          <span class="stat-label">User Role Types in HRMS</span>
+        </div>
+        <div class="stat-card animate-on-scroll" style="transition-delay:0.2s">
+          <span class="stat-number" data-target="100" data-suffix="%">0</span>
+          <span class="stat-label">RTL Coverage &mdash; Consumer App</span>
+        </div>
+        <div class="stat-card animate-on-scroll" style="transition-delay:0.3s">
+          <span class="stat-number" data-target="2">0</span>
+          <span class="stat-label">App Stores Submitted</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section id="about">
+    <div class="container">
+      <div class="section-label animate-on-scroll">WHO I AM</div>
+      <h2 class="section-heading animate-on-scroll" style="transition-delay:0.1s">A builder who ships. Every sprint, every week.</h2>
+      <div class="about-grid">
+        <div class="about-text animate-on-scroll" style="transition-delay:0.2s">
+          <p>
+            I joined SpeedForce Digital as an AI Engineer and grew rapidly into a
+            full-stack mobile and web contributor &mdash; owning everything from
+            enterprise HR system architecture to pixel-perfect Flutter app redesigns,
+            Arabic RTL localization, live GPS tracking, and cloud function deployment.
+          </p>
+          <p>
+            My work spans five production-grade projects delivered across web and
+            mobile platforms &mdash; each one shipped, tested, and actively used. I don&rsquo;t
+            just write code; I take ownership of the full delivery cycle from first
+            commit to App Store submission.
+          </p>
+          <ul class="about-highlights">
+            <li>Tallu Consumer App &mdash; iOS &amp; Android (Flutter)</li>
+            <li>Tallu Provider/Supplier App &mdash; iOS &amp; Android (Flutter)</li>
+            <li>HRMS System &mdash; Full-stack HR platform (React + TypeScript + Appwrite)</li>
+            <li>United Force &mdash; Saudi Arabia B2B landing page</li>
+            <li>Qaider App &mdash; Onboarding, architecture audit &amp; redesign</li>
+          </ul>
+        </div>
+        <div class="about-code-card animate-on-scroll" style="transition-delay:0.3s">
+          <span class="code-comment">// HRMS &mdash; Real-time Performance Engine</span><br>
+          <span class="code-keyword">class</span> <span class="code-class">PerformanceService</span> {<br>
+          &nbsp;&nbsp;<span class="code-keyword">Future</span>&lt;<span class="code-keyword">void</span>&gt; recalculate(<span class="code-keyword">String</span> employeeId) <span class="code-keyword">async</span> {<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">final</span> attendance = <span class="code-keyword">await</span> _fetchAttendance(employeeId);<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">final</span> tasks = <span class="code-keyword">await</span> _fetchTasks(employeeId);<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">final</span> score = _computeScore(attendance, tasks);<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">await</span> _updateMetrics(employeeId, score);<br>
+          &nbsp;&nbsp;}<br>
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROJECTS ===== -->
+  <section id="projects">
+    <div class="container">
+      <div class="section-label animate-on-scroll">WHAT I BUILT</div>
+      <h2 class="section-heading animate-on-scroll" style="transition-delay:0.1s">6 projects. Real users. Shipped.</h2>
+
+      <!-- Tallu Consumer -->
+      <div class="project-card-large animate-on-scroll" style="transition-delay:0.2s">
+        <div class="project-image">
+          <img src="https://tallu.speedforcehosting.com/_next/image?url=%2FHome%20screens%2FMockup.png&w=3840&q=75" alt="Tallu Consumer App Mockup" loading="lazy" />
+        </div>
+        <div class="project-content">
+          <div class="project-tag">Flutter &middot; iOS &amp; Android</div>
+          <h3 class="project-title">Tallu Consumer App</h3>
+          <div class="project-subhead">On-demand marketplace for Saudi Arabia</div>
+          <p class="project-desc">
+            Built the complete consumer-facing mobile app &mdash; enabling users across
+            Saudi Arabia to book construction machinery, freight transport, and
+            24/7 roadside assistance. Includes live GPS tracking, real-time offer
+            negotiation, full Arabic/RTL UI, push notification routing, KYC flows,
+            reports module, and collapsible tracking bottom sheets.
+          </p>
+          <div class="project-features">
+            <span class="feature-pill">Live GPS Tracking</span>
+            <span class="feature-pill">RTL/Arabic</span>
+            <span class="feature-pill">FCM Notifications</span>
+            <span class="feature-pill">Draggable Sheets</span>
+            <span class="feature-pill">Real-time Offers</span>
+            <span class="feature-pill">Reports Module</span>
+            <span class="feature-pill">1,000+ Locale Keys</span>
+            <span class="feature-pill">Appwrite Real-time</span>
+          </div>
+          <div class="project-stats-row">
+            <span>200+ Screens</span>
+            <span>iOS &amp; Android</span>
+            <span>TestFlight Released</span>
+          </div>
+          <a href="https://tallu.speedforcehosting.com/" target="_blank" rel="noopener" class="project-link">
+            View Landing Page
+            <i data-lucide="arrow-right" style="width:14px;height:14px"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Tallu Provider -->
+      <div class="project-card-large reversed animate-on-scroll" style="transition-delay:0.3s">
+        <div class="project-content">
+          <div class="project-tag">Flutter &middot; iOS &amp; Android</div>
+          <h3 class="project-title">Tallu Provider App</h3>
+          <div class="project-subhead">Supplier-side app for verified service providers</div>
+          <p class="project-desc">
+            Built the full provider-facing mobile app &mdash; from two-step KYC
+            submission and complete profile flow to live job tracking, machinery
+            and vehicle management, commission wallet with top-up requests,
+            custom vehicle types, nearby machinery map with private request flow,
+            and targeted push notifications based on provider inventory.
+          </p>
+          <div class="project-features">
+            <span class="feature-pill">Commission Wallet</span>
+            <span class="feature-pill">Live GPS</span>
+            <span class="feature-pill">KYC Verification</span>
+            <span class="feature-pill">Custom Vehicle Types</span>
+            <span class="feature-pill">Nearby Machinery Map</span>
+            <span class="feature-pill">Private Requests</span>
+            <span class="feature-pill">RTL Support</span>
+            <span class="feature-pill">TestFlight Released</span>
+          </div>
+          <div class="project-stats-row">
+            <span>150+ Screens</span>
+            <span>7 Cloud Functions</span>
+            <span>Appwrite Real-time</span>
+          </div>
+        </div>
+        <div class="project-image">
+          <img src="https://tallu.speedforcehosting.com/_next/image?url=%2FHome%20screens%2FMockup.png&w=3840&q=75" alt="Tallu Provider App Mockup" loading="lazy" />
+        </div>
+      </div>
+
+      <!-- Tallu Admin Panel -->
+      <div class="project-card-large animate-on-scroll" style="transition-delay:0.35s">
+        <div class="project-image">
+          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80" alt="Tallu Admin Panel" loading="lazy" />
+        </div>
+        <div class="project-content">
+          <div class="project-tag">React &middot; TypeScript &middot; Appwrite</div>
+          <h3 class="project-title">Tallu Admin Panel</h3>
+          <div class="project-subhead">Centralized operations dashboard for the Tallu platform</div>
+          <p class="project-desc">
+            Built and maintained the complete admin control panel for the Tallu ecosystem &mdash;
+            a feature-rich dashboard enabling platform-wide user management, service verification,
+            order tracking, content moderation, and real-time analytics. Integrated with the same
+            Appwrite backend powering both Consumer and Provider apps for seamless data consistency
+            across the entire Tallu platform.
+          </p>
+          <div class="project-features">
+            <span class="feature-pill">User Management</span>
+            <span class="feature-pill">Order Tracking</span>
+            <span class="feature-pill">Service Verification</span>
+            <span class="feature-pill">Content Moderation</span>
+            <span class="feature-pill">Real-time Analytics</span>
+            <span class="feature-pill">Appwrite Backend</span>
+            <span class="feature-pill">Reports Module</span>
+            <span class="feature-pill">Role-Based Access</span>
+          </div>
+          <div class="project-stats-row">
+            <span>Full Dashboard</span>
+            <span>Cross-App Integration</span>
+          </div>
+          <a href="https://tallu-admin.speedforcehosting.com/dashboard" target="_blank" rel="noopener" class="project-link">
+            View Dashboard
+            <i data-lucide="arrow-right" style="width:14px;height:14px"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Small cards -->
+      <div class="project-cards-small">
+        <!-- HRMS -->
+        <div class="project-card-small animate-on-scroll" style="transition-delay:0.1s">
+          <div class="project-image-small" style="background:var(--color-navy-mid);overflow:hidden">
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80" alt="HRMS System Dashboard" loading="lazy"
+              style="width:100%;height:100%;object-fit:cover" />
+          </div>
+          <div class="project-tag">React &middot; TypeScript &middot; Appwrite</div>
+          <h3 class="project-title" style="font-size:20px;margin:10px 0 4px">HRMS System</h3>
+          <div class="project-subhead" style="font-size:14px;margin-bottom:12px">Enterprise HR platform built from scratch</div>
+          <p class="project-desc" style="font-size:13px">
+            Architected and built a full Human Resource Management System &mdash;
+            covering employee attendance with clock-in/out and break tracking, multi-stage
+            leave management (Employee &rarr; Team Lead &rarr; HR), role-based dashboards
+            for 4 user types, performance analytics, and strict governance (20 leave/year
+            quota, 2/month cap). Migrated the backend to Neon DB with Prisma (24 tables),
+            deployed to Vercel serverless, and optimized the API from 124K+ requests down
+            by 95% by eliminating memory leaks and correcting polling intervals.
+          </p>
+          <div class="project-features">
+            <span class="feature-pill">Role-Based Auth</span>
+            <span class="feature-pill">Attendance Tracking</span>
+            <span class="feature-pill">Leave Governance</span>
+            <span class="feature-pill">Performance Analytics</span>
+            <span class="feature-pill">Neon DB + Prisma</span>
+            <span class="feature-pill">Vercel Deployed</span>
+            <span class="feature-pill">Data Export</span>
+            <span class="feature-pill">Enterprise Dashboards</span>
+            <span class="feature-pill">95% API Reduction</span>
+          </div>
+          <div class="project-stats-row" style="margin-top:8px">
+            <span>4 User Roles</span>
+            <span>24 DB Tables</span>
+            <span>95% API Reduction</span>
+          </div>
+        </div>
+
+        <!-- United Force -->
+        <div class="project-card-small animate-on-scroll" style="transition-delay:0.2s">
+          <div class="project-image-small" style="overflow:hidden">
+            <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&q=80" alt="United Force" loading="lazy"
+              style="width:100%;height:100%;object-fit:cover" />
+          </div>
+          <div class="project-tag">Web &middot; HTML/CSS/JS</div>
+          <h3 class="project-title" style="font-size:20px;margin:10px 0 4px">United Force</h3>
+          <div class="project-subhead" style="font-size:14px;margin-bottom:12px">Saudi Arabia B2B industrial landing page</div>
+          <p class="project-desc" style="font-size:13px">
+            Designed and developed the complete United Force landing page &mdash;
+            a Saudi Arabia&ndash;based B2B industrial services website. Built with a
+            consistent brand design system, catalog browse flow, quote request
+            form, and WhatsApp contact integration. Delivered with optimized
+            loading performance, full testing, version control, and documentation.
+          </p>
+          <div class="project-features">
+            <span class="feature-pill">Design System</span>
+            <span class="feature-pill">Lead Generation</span>
+            <span class="feature-pill">WhatsApp CTA</span>
+            <span class="feature-pill">Catalog Form</span>
+            <span class="feature-pill">Performance Optimized</span>
+            <span class="feature-pill">SEO Ready</span>
+          </div>
+          <a href="https://unitedforce.sa/" target="_blank" rel="noopener" class="project-link" style="margin-top:12px;display:inline-flex">
+            View Live
+            <i data-lucide="arrow-right" style="width:14px;height:14px"></i>
+          </a>
+        </div>
+
+        <!-- Qaider -->
+        <div class="project-card-small animate-on-scroll" style="transition-delay:0.3s">
+          <div class="project-image-small" style="background:var(--color-navy-mid);overflow:hidden">
+            <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&q=80" alt="Qaider App" loading="lazy"
+              style="width:100%;height:100%;object-fit:cover" />
+          </div>
+          <div class="project-tag">Flutter &middot; In Progress</div>
+          <h3 class="project-title" style="font-size:20px;margin:10px 0 4px">Qaider App</h3>
+          <div class="project-subhead" style="font-size:14px;margin-bottom:12px">Google Business Profile management &mdash; onboarding &amp; audit</div>
+          <p class="project-desc" style="font-size:13px">
+            Recently onboarded onto the Qaider project &mdash; a Google Business Profile
+            management platform built in Flutter (370+ Dart files, 45 cloud
+            functions). Performed a full architecture audit identifying critical
+            technical debt (579 hardcoded colors, 4,200+ raw layout values, 3
+            duplicate constant file pairs), delivered two complete redesign roadmaps
+            (Figma MCP and manual), and shipped immediate UI fixes for render
+            overflows and invisible navigation icons.
+          </p>
+          <div class="project-features">
+            <span class="feature-pill">Architecture Audit</span>
+            <span class="feature-pill">Redesign Roadmap</span>
+            <span class="feature-pill">UI/UX Fixes</span>
+            <span class="feature-pill">370+ Dart Files</span>
+            <span class="feature-pill">45 Cloud Functions</span>
+            <span class="feature-pill">In Progress</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TIMELINE ===== -->
+  <section id="timeline">
+    <div class="container">
+      <div class="section-label animate-on-scroll">MY JOURNEY</div>
+      <h2 class="section-heading animate-on-scroll" style="transition-delay:0.1s">6 months. 5 projects. Consistent delivery.</h2>
+      <div class="timeline-wrapper">
+        <div class="timeline-line"></div>
+
+        <div class="timeline-item animate-on-scroll" style="transition-delay:0.15s">
+          <div class="timeline-spacer"></div>
+          <div class="timeline-dot"></div>
+          <div class="timeline-dot-mobile"></div>
+          <div class="timeline-card">
+            <div class="timeline-month">Dec 2025</div>
+            <div class="timeline-title">HRMS: Built from Scratch</div>
+            <div class="timeline-body">
+              Architected and shipped the full HRMS platform &mdash; a React + TypeScript + Appwrite
+              enterprise system with clock-in/out attendance, multi-stage leave management
+              (Employee &rarr; Team Lead &rarr; HR), role-based dashboards for 4 user types,
+              performance analytics with decimal precision, and a company hierarchy visualizer
+              with smooth animations. Optimized the system to reduce API calls by 95% (from 124K+
+              requests by fixing a critical memory leak), migrated the database to Neon with Prisma
+              (24 tables), and deployed the entire platform to Vercel serverless.
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item animate-on-scroll" style="transition-delay:0.25s">
+          <div class="timeline-spacer"></div>
+          <div class="timeline-dot"></div>
+          <div class="timeline-dot-mobile"></div>
+          <div class="timeline-card">
+            <div class="timeline-month">Jan 2026</div>
+            <div class="timeline-title">United Force Landing Page + Tallu Onboarding</div>
+            <div class="timeline-body">
+              Designed and delivered the complete United Force B2B industrial landing page &mdash;
+              brand-consistent, with catalog browse, quote request, and WhatsApp CTA. Simultaneously
+              onboarded onto the Tallu platform: built the Auth module with Country Code Picker,
+              fixed Transport/Equipment tab logic and maps, optimized the Materials tab and
+              Cart/Checkout state management, and unified Order UI to a receipt-style layout.
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item animate-on-scroll" style="transition-delay:0.35s">
+          <div class="timeline-spacer"></div>
+          <div class="timeline-dot"></div>
+          <div class="timeline-dot-mobile"></div>
+          <div class="timeline-card">
+            <div class="timeline-month">Feb 2026</div>
+            <div class="timeline-title">Tallu Consumer App: Full UI Redesign</div>
+            <div class="timeline-body">
+              Redesigned the entire Tallu Consumer App from the ground up &mdash; Auth screens,
+              Custom Fluid Clipper Bottom Navigation, Checkout &amp; Order Success, Machinery,
+              Location Picker, Request lifecycle screens (Pending &rarr; Completed), Delivery
+              Tracking, Return/Extension flows, Cart, Work in Progress, and all Profile/Account/
+              Security screens including Active Sessions and Login History.
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item animate-on-scroll" style="transition-delay:0.45s">
+          <div class="timeline-spacer"></div>
+          <div class="timeline-dot"></div>
+          <div class="timeline-dot-mobile"></div>
+          <div class="timeline-card">
+            <div class="timeline-month">Mar 2026</div>
+            <div class="timeline-title">Tallu Provider App Redesign + Backend Migration</div>
+            <div class="timeline-body">
+              Redesigned the complete Tallu Provider App &mdash; Onboarding, Auth, KYC, Dashboard,
+              Bottom Navigation, all Inventory modules (Equipment, Transport, Materials), Service
+              tracking flows, Profile, Security, Earnings, and Orders. Simultaneously executed a
+              full backend migration from Appwrite Cloud to a self-hosted server &mdash; resolving
+              Auth/DB sync conflicts, restoring all category assets, deploying cloud functions,
+              and adding 58 missing backend attributes.
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item animate-on-scroll" style="transition-delay:0.55s">
+          <div class="timeline-spacer"></div>
+          <div class="timeline-dot"></div>
+          <div class="timeline-dot-mobile"></div>
+          <div class="timeline-card">
+            <div class="timeline-month">Apr 2026</div>
+            <div class="timeline-title">Commission Wallet + Reports + RTL + Live GPS</div>
+            <div class="timeline-body">
+              Built the Commission Wallet system from scratch (dynamic rates, cloud functions for
+              validation/acceptance/refund, transaction history, top-up request flow). Launched the
+              Reports Module across both apps and the Admin Panel. Implemented 1,000+ EN/AR
+              localization keys with full RTL layout support (custom RTLBackButton, directional
+              layouts, icon flipping). Implemented two-phase Live GPS Tracking for Transport and
+              Roadside Assistance. Added the Nearby Machinery map with Private Request flow.
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item animate-on-scroll" style="transition-delay:0.65s">
+          <div class="timeline-spacer"></div>
+          <div class="timeline-dot"></div>
+          <div class="timeline-dot-mobile"></div>
+          <div class="timeline-card">
+            <div class="timeline-month">May 2026</div>
+            <div class="timeline-title">Firebase Notifications + Phone OTP + TestFlight + Qaider</div>
+            <div class="timeline-body">
+              Wired the complete Firebase FCM push notification system with deep-link routing across
+              both apps. Replaced email password recovery with Firebase Phone OTP. Added Remember-me
+              session persistence. Fixed 30+ notification routing bugs (duplicate banners, killed-app
+              crashes, spam loops). Submitted Tallu Consumer and Provider TestFlight builds to the
+              App Store. Onboarded onto Qaider &mdash; performed full architecture audit of 370+ Dart
+              files and delivered redesign roadmaps.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SKILLS ===== -->
+  <section id="skills">
+    <div class="container">
+      <div class="section-label animate-on-scroll">TECHNICAL BREADTH</div>
+      <h2 class="section-heading animate-on-scroll" style="transition-delay:0.1s">From pixel to production.</h2>
+      <div class="skills-grid">
+        <div class="skills-category animate-on-scroll" style="transition-delay:0.15s">
+          <h4>Mobile</h4>
+          <span class="skill-pill"><i data-lucide="smartphone"></i> Flutter</span>
+          <span class="skill-pill"><i data-lucide="code"></i> Dart</span>
+          <span class="skill-pill"><i data-lucide="apple"></i> iOS (Xcode)</span>
+          <span class="skill-pill"><i data-lucide="smartphone"></i> Android</span>
+          <span class="skill-pill"><i data-lucide="languages"></i> ARB / Localization</span>
+          <span class="skill-pill"><i data-lucide="align-left"></i> RTL Design</span>
+          <span class="skill-pill"><i data-lucide="map-pin"></i> GPS Tracking</span>
+        </div>
+        <div class="skills-category animate-on-scroll" style="transition-delay:0.25s">
+          <h4>Backend &amp; Cloud</h4>
+          <span class="skill-pill"><i data-lucide="server"></i> Appwrite</span>
+          <span class="skill-pill"><i data-lucide="zap"></i> Firebase</span>
+          <span class="skill-pill"><i data-lucide="bell"></i> FCM / APNs</span>
+          <span class="skill-pill"><i data-lucide="cloud"></i> Cloud Functions</span>
+          <span class="skill-pill"><i data-lucide="link"></i> REST APIs</span>
+          <span class="skill-pill"><i data-lucide="radio"></i> Real-time Subscriptions</span>
+          <span class="skill-pill"><i data-lucide="hard-drive"></i> Appwrite Storage</span>
+        </div>
+        <div class="skills-category animate-on-scroll" style="transition-delay:0.35s">
+          <h4>Web &amp; Frontend</h4>
+          <span class="skill-pill"><i data-lucide="code"></i> React</span>
+          <span class="skill-pill"><i data-lucide="file-text"></i> TypeScript</span>
+          <span class="skill-pill"><i data-lucide="globe"></i> Next.js</span>
+          <span class="skill-pill"><i data-lucide="layout"></i> HTML / CSS / JS</span>
+          <span class="skill-pill"><i data-lucide="database"></i> Neon DB + Prisma</span>
+          <span class="skill-pill"><i data-lucide="cloud"></i> Vercel Serverless</span>
+          <span class="skill-pill"><i data-lucide="palette"></i> Tailwind CSS</span>
+        </div>
+        <div class="skills-category animate-on-scroll" style="transition-delay:0.45s">
+          <h4>Tools &amp; Process</h4>
+          <span class="skill-pill"><i data-lucide="git-branch"></i> Git / GitHub</span>
+          <span class="skill-pill"><i data-lucide="terminal"></i> Android Studio</span>
+          <span class="skill-pill"><i data-lucide="monitor"></i> Xcode</span>
+          <span class="skill-pill"><i data-lucide="pen-tool"></i> Figma</span>
+          <span class="skill-pill"><i data-lucide="play-circle"></i> Google Play Console</span>
+          <span class="skill-pill"><i data-lucide="smartphone"></i> TestFlight / App Store</span>
+          <span class="skill-pill"><i data-lucide="trello"></i> Jira</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ACTIVITIES ===== -->
+  <section id="activities">
+    <div class="container">
+      <div class="section-label animate-on-scroll">BEYOND THE CODE</div>
+      <h2 class="section-heading animate-on-scroll" style="transition-delay:0.1s">A team player, not just a developer.</h2>
+      <div class="culture-grid">
+        <div class="culture-card animate-on-scroll" style="transition-delay:0.15s">
+          <div class="culture-card-bg" style="background-image:url('https://speedforce.agency/logo.avif')"></div>
+          <div class="culture-card-bg-overlay"></div>
+          <span class="culture-icon">🎉</span>
+          <div class="culture-date">April 2026</div>
+          <div class="culture-title">Eid Celebrations</div>
+          <div class="culture-body">
+            Participated in the company&rsquo;s Eid Mubarak event &mdash; a celebration of culture,
+            team unity, and employee appreciation organized by SFD.
+          </div>
+          <a href="https://www.linkedin.com/posts/speedforceagency_eidmubarak-teamculture-employeeappreciation-activity-7435715827263258624-RWZC" target="_blank" rel="noopener" class="culture-link">
+            View on LinkedIn
+            <i data-lucide="external-link" style="width:12px;height:12px"></i>
+          </a>
+        </div>
+        <div class="culture-card animate-on-scroll" style="transition-delay:0.25s">
+          <div class="culture-card-bg" style="background-image:url('https://speedforce.agency/logo.avif')"></div>
+          <div class="culture-card-bg-overlay"></div>
+          <span class="culture-icon">🌙</span>
+          <div class="culture-date">March 2026</div>
+          <div class="culture-title">Ramadan Iftar</div>
+          <div class="culture-body">
+            Joined the team Iftar gathering &mdash; a moment of reflection, connection,
+            and community during the holy month of Ramadan.
+          </div>
+          <a href="https://www.linkedin.com/posts/speedforceagency_ramadan-teamculture-iftaarmoments-activity-7437765241750470656-yqFV" target="_blank" rel="noopener" class="culture-link">
+            View on LinkedIn
+            <i data-lucide="external-link" style="width:12px;height:12px"></i>
+          </a>
+        </div>
+        <div class="culture-card animate-on-scroll" style="transition-delay:0.35s">
+          <div class="culture-card-bg" style="background-image:url('https://speedforce.agency/logo.avif')"></div>
+          <div class="culture-card-bg-overlay"></div>
+          <span class="culture-icon">🎓</span>
+          <div class="culture-date">March 2026</div>
+          <div class="culture-title">Soft Skills Training</div>
+          <div class="culture-body">
+            Attended a structured soft skills training session organized by HR,
+            focused on workplace habits and professional team development.
+          </div>
+          <a href="https://www.linkedin.com/posts/speedforceagency_softskills-workplacehabits-teamdevelopment-activity-7442925828369334272-NPMi" target="_blank" rel="noopener" class="culture-link">
+            View on LinkedIn
+            <i data-lucide="external-link" style="width:12px;height:12px"></i>
+          </a>
+        </div>
+        <div class="culture-card animate-on-scroll" style="transition-delay:0.45s">
+          <div class="culture-card-bg" style="background-image:url('https://speedforce.agency/logo.avif')"></div>
+          <div class="culture-card-bg-overlay"></div>
+          <span class="culture-icon">👋</span>
+          <div class="culture-date">April 2026</div>
+          <div class="culture-title">Team Farewell Event</div>
+          <div class="culture-body">
+            Participated in the farewell event organized by SFD &mdash; contributing
+            to a culture of recognition, warmth, and team appreciation.
+          </div>
+          <a href="https://www.linkedin.com/posts/speedforceagency_farewell-teamappreciation-uiux-activity-7449443788563066880-kr1G" target="_blank" rel="noopener" class="culture-link">
+            View on LinkedIn
+            <i data-lucide="external-link" style="width:12px;height:12px"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ABCD REPORTS ===== -->
+  <section id="reports">
+    <div class="container">
+      <div class="section-label animate-on-scroll">STRUCTURED DELIVERY</div>
+      <h2 class="section-heading animate-on-scroll" style="transition-delay:0.1s">Every sprint tracked. Every outcome documented.</h2>
+      <p class="reports-desc animate-on-scroll" style="transition-delay:0.2s">
+        Throughout my tenure, I maintained detailed ABCD Work Reports &mdash; a structured
+        format tracking Achievements, Benefits delivered, Concerns flagged, and the next
+        steps planned. This reflects not just technical output, but disciplined, accountable
+        delivery week after week.
+      </p>
+      <div class="abcd-scroll-container animate-on-scroll" style="transition-delay:0.3s">
+        <div class="abcd-card">
+          <div class="abcd-sprint-label">Sprint &mdash; HRMS Architecture</div>
+          <div class="abcd-achievement">Built full HRMS &mdash; attendance, leave, performance, role-based auth, enterprise dashboards, 95% API reduction</div>
+          <div class="abcd-benefit">Secure, scalable HR platform with strict data access controls</div>
+          <div class="abcd-concern">Bundle size and lazy loading initially needed optimization</div>
+        </div>
+        <div class="abcd-card">
+          <div class="abcd-sprint-label">Sprint &mdash; United Force + Tallu Onboarding</div>
+          <div class="abcd-achievement">Shipped United Force landing page; built Tallu Auth, Maps, Cart, and Inventory foundations</div>
+          <div class="abcd-benefit">Strong B2B web presence delivered; Tallu development unblocked</div>
+          <div class="abcd-concern">Git authorization and token issues during initial onboarding</div>
+        </div>
+        <div class="abcd-card">
+          <div class="abcd-sprint-label">Sprint &mdash; Backend Migration</div>
+          <div class="abcd-achievement">Migrated Appwrite Cloud to self-hosted server; resolved Auth/DB sync; added 58 DB attributes; deployed cloud functions</div>
+          <div class="abcd-benefit">Full system independence restored with robust data integrity</div>
+          <div class="abcd-concern">Managing intermittent sync during final stabilization phase</div>
+        </div>
+        <div class="abcd-card">
+          <div class="abcd-sprint-label">Sprint &mdash; Commission Wallet &amp; Reports Module</div>
+          <div class="abcd-achievement">Built wallet system from scratch; launched Reports module across both apps and Admin Panel; RTL/localization</div>
+          <div class="abcd-benefit">Automated financial tracking; transparent issue management; native Arabic UX</div>
+          <div class="abcd-concern">Ensuring 4th nav tab doesn&rsquo;t crowd UI on smaller screens</div>
+        </div>
+        <div class="abcd-card">
+          <div class="abcd-sprint-label">Sprint &mdash; Auth &amp; Notification Routing</div>
+          <div class="abcd-achievement">Firebase phone OTP recovery; deep-link routing for 30+ notification types; killed duplicate banners</div>
+          <div class="abcd-benefit">Streamlined recovery, no crashes from killed-app taps, zero spam</div>
+          <div class="abcd-concern">Firebase SMS OTP quota limits across regional telecom providers</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer id="footer">
+    <div class="container">
+      <img src="https://media.licdn.com/dms/image/v2/D5603AQG5X1p3Z4y-Kw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1727863581815?e=1749686400&v=beta&t=0ZJasB1aQVPIFx9lyWWmQ41mF8HgKLITqNoqK_OI1qQ" alt="Amir Jamal Ali Khan"
+        onerror="this.style.display='none'; document.getElementById('footer-monogram').style.display='flex';"
+        class="footer-avatar" />
+      <div id="footer-monogram" class="footer-avatar-monogram">JA</div>
+      <div class="footer-name">Amir Jamal Ali Khan</div>
+      <div class="footer-role">AI Engineer / Flutter Developer &mdash; SpeedForce Digital</div>
+      <div class="footer-divider"></div>
+      <div class="footer-tagline">Built with discipline. Delivered with care.</div>
+      <div class="footer-date">December 2025 &ndash; May 2026</div>
+    </div>
+  </footer>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <script>
+    // ===== INIT LUCIDE =====
+    lucide.createIcons();
+
+    // ===== THEME TOGGLE =====
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon = document.getElementById('themeIcon');
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    if (savedTheme === 'light') {
+      document.documentElement.setAttribute('data-theme', 'light');
+      themeIcon.setAttribute('data-lucide', 'sun');
+      lucide.createIcons();
+    }
+    themeToggle.addEventListener('click', function() {
+      const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+      if (isLight) {
+        document.documentElement.removeAttribute('data-theme');
+        localStorage.setItem('theme', 'dark');
+        themeIcon.setAttribute('data-lucide', 'moon');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+        localStorage.setItem('theme', 'light');
+        themeIcon.setAttribute('data-lucide', 'sun');
+      }
+      lucide.createIcons();
+    });
+
+    // ===== NAV =====
+    const nav = document.getElementById('nav');
+    const hamburger = document.getElementById('hamburger');
+    const overlay = document.getElementById('navOverlay');
+
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 60) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+    });
+
+    hamburger.addEventListener('click', function() {
+      this.classList.toggle('active');
+      overlay.classList.toggle('open');
+      document.body.style.overflow = overlay.classList.contains('open') ? 'hidden' : '';
+    });
+
+    document.querySelectorAll('.overlay-link').forEach(function(link) {
+      link.addEventListener('click', function() {
+        hamburger.classList.remove('active');
+        overlay.classList.remove('open');
+        document.body.style.overflow = '';
+      });
+    });
+
+    // ===== NAV SCROLL SPY =====
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-links a');
+
+    function updateActiveLink() {
+      let current = '';
+      sections.forEach(function(section) {
+        const top = section.offsetTop - 120;
+        const bottom = top + section.offsetHeight;
+        if (window.scrollY >= top && window.scrollY < bottom) {
+          current = section.getAttribute('id');
+        }
+      });
+      navLinks.forEach(function(link) {
+        link.classList.toggle('active', link.getAttribute('href') === '#' + current);
+      });
+    }
+    window.addEventListener('scroll', updateActiveLink);
+    window.addEventListener('load', updateActiveLink);
+
+    // ===== INTERSECTION OBSERVER =====
+    const observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.animate-on-scroll').forEach(function(el) {
+      observer.observe(el);
+    });
+
+    // ===== COUNTER ANIMATION =====
+    const statsSection = document.getElementById('stats');
+    let countersStarted = false;
+
+    function animateCounter(el, target, duration) {
+      var start = null;
+      var suffix = el.dataset.suffix || '';
+      function step(timestamp) {
+        if (!start) start = timestamp;
+        var progress = Math.min((timestamp - start) / duration, 1);
+        var eased = 1 - Math.pow(1 - progress, 3);
+        el.textContent = Math.floor(eased * target) + suffix;
+        if (progress < 1) {
+          requestAnimationFrame(step);
+        }
+      }
+      requestAnimationFrame(step);
+    }
+
+    function startCounters() {
+      if (countersStarted) return;
+      countersStarted = true;
+      document.querySelectorAll('.stat-number').forEach(function(el) {
+        var target = parseInt(el.dataset.target, 10);
+        animateCounter(el, target, 1800);
+      });
+    }
+
+    const statsObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          startCounters();
+          statsObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    statsObserver.observe(statsSection);
+
+    // ===== TYPEWRITER =====
+    (function() {
+      var strings = [
+        'Built production apps used across Saudi Arabia.',
+        '6 Projects. 6 Months. Zero missed sprints.',
+        'Flutter \u00B7 React \u00B7 Appwrite \u00B7 Firebase \u00B7 RTL/Arabic'
+      ];
+      var el = document.getElementById('typewriterText');
+      var strIndex = 0;
+      var charIndex = 0;
+      var isDeleting = false;
+      var isWaiting = false;
+
+      function typeStep() {
+        var current = strings[strIndex];
+        if (!isDeleting && !isWaiting) {
+          charIndex++;
+          el.textContent = current.substring(0, charIndex);
+          if (charIndex === current.length) {
+            isWaiting = true;
+            setTimeout(function() { isWaiting = false; isDeleting = true; typeStep(); }, 2000);
+            return;
+          }
+          setTimeout(typeStep, 40 + Math.random() * 30);
+        } else if (isDeleting) {
+          charIndex--;
+          el.textContent = current.substring(0, charIndex);
+          if (charIndex === 0) {
+            isDeleting = false;
+            strIndex = (strIndex + 1) % strings.length;
+            setTimeout(typeStep, 300);
+            return;
+          }
+          setTimeout(typeStep, 20 + Math.random() * 20);
+        }
+      }
+      // Start immediately
+      setTimeout(typeStep, 100);
+    })();
+
+    // ===== SMOOTH SCROLL FOR ANCHOR LINKS =====
+    document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+      anchor.addEventListener('click', function(e) {
+        var target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+
+    // ===== UPDATE ACTIVE LINK ON LOAD =====
+    updateActiveLink();
+  </script>
+</body>
+</html>
