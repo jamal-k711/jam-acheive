@@ -83,9 +83,7 @@ export default function Reports() {
           Every sprint tracked. Every outcome documented.
         </h2>
         <p className="text-muted font-body text-sm xs:text-[15px] leading-relaxed max-w-[720px] mb-8 animate-on-scroll" style={{ transitionDelay: "0.2s" }}>
-          Throughout my tenure, I maintained detailed ABCD Work Reports &mdash; a structured
-          format tracking Achievements, Benefits delivered, Concerns flagged, and the next
-          steps planned. This reflects not just technical output, but disciplined, accountable
+          Throughout my tenure, I maintained detailed ABCD Work Reports. This reflects not just technical output, but disciplined, accountable
           delivery week after week.
         </p>
         <div className="relative animate-on-scroll" style={{ transitionDelay: "0.3s" }}>

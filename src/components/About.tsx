@@ -17,8 +17,8 @@ export default function About() {
               Arabic RTL localization, live GPS tracking, and cloud function deployment.
             </p>
             <p className="text-sm xs:text-[15px] md:text-base leading-relaxed text-muted font-body mb-5">
-              My work spans six production-grade projects delivered across web and
-              mobile platforms &mdash; each one shipped, tested, and actively used. I don&rsquo;t
+              My work spans six deployment-ready projects delivered across web and
+              mobile platforms &mdash; each one shipped, tested, and deployed. I don&rsquo;t
               just write code; I take ownership of the full delivery cycle from first
               commit to App Store submission.
             </p>
@@ -27,7 +27,7 @@ export default function About() {
                 "Tallu Consumer App — iOS & Android (Flutter)",
                 "Tallu Provider/Supplier App — iOS & Android (Flutter)",
                 "Tallu Admin Panel — Dashboard (React + TypeScript)",
-                "HRMS System — Full-stack HR platform (React + TypeScript + Appwrite)",
+                "HRMS — Full-stack HR platform (React + TypeScript + Appwrite)",
                 "United Force — Saudi Arabia B2B landing page",
                 "Qaider App — Onboarding, architecture audit & redesign",
               ].map((item) => (

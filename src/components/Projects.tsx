@@ -39,9 +39,9 @@ export default function Projects() {
           tag="Flutter · iOS & Android"
           title="Tallu Consumer App"
           subhead="On-demand marketplace for Saudi Arabia"
-          desc="Built the complete consumer-facing mobile app — enabling users across Saudi Arabia to book construction machinery, freight transport, and 24/7 roadside assistance. Includes live GPS tracking, real-time offer negotiation, full Arabic/RTL UI, push notification routing, KYC flows, reports module, and collapsible tracking bottom sheets."
-          features={["Live GPS Tracking", "RTL/Arabic", "FCM Notifications", "Draggable Sheets", "Real-time Offers", "Reports Module", "1,000+ Locale Keys", "Appwrite Real-time"]}
-          stats={["200+ Screens", "iOS & Android", "TestFlight Released"]}
+          desc="Built the complete consumer-facing mobile app — enabling users across Saudi Arabia to book construction machinery, freight transport, and 24/7 roadside assistance. Includes live GPS tracking, real-time offer negotiation, full Arabic/RTL UI, push notification routing, KYC flows, reports etc."
+          features={["Live GPS Tracking", "RTL/Arabic", "FCM Notifications", "Interactive Sheets", "Real-time Offers", "Complaint Reports", "1,000+ Locale Keys", "Appwrite Real-time"]}
+          stats={["100+ Screens", "iOS & Android", "TestFlight Released"]}
         />
 
         {/* Tallu Provider */}
@@ -61,7 +61,7 @@ export default function Projects() {
           subhead="Supplier-side app for verified service providers"
           desc="Built the full provider-facing mobile app — from two-step KYC submission and complete profile flow to live job tracking, machinery and vehicle management, commission wallet with top-up requests, custom vehicle types, nearby machinery map with private request flow, and targeted push notifications based on provider inventory."
           features={["Commission Wallet", "Live GPS", "KYC Verification", "Custom Vehicle Types", "Nearby Machinery Map", "Private Requests", "RTL Support", "TestFlight Released"]}
-          stats={["150+ Screens", "7 Cloud Functions", "Appwrite Real-time"]}
+          stats={["100+ Screens", "7 Cloud Functions", "Appwrite Real-time"]}
         />
 
         {/* Tallu Admin Panel */}
@@ -79,8 +79,8 @@ export default function Projects() {
           tag="React · TypeScript · Appwrite"
           title="Tallu Admin Panel"
           subhead="Centralized operations dashboard for the Tallu platform"
-          desc="Built and maintained the complete admin control panel for the Tallu ecosystem — a feature-rich dashboard enabling platform-wide user management, service verification, order tracking, content moderation, and real-time analytics. Integrated with the same Appwrite backend powering both Consumer and Provider apps for seamless data consistency across the entire Tallu platform."
-          features={["User Management", "Order Tracking", "Service Verification", "Content Moderation", "Real-time Analytics", "Appwrite Backend", "Reports Module", "Role-Based Access"]}
+          desc="Enhanced & Maintained the complete admin control panel for the Tallu ecosystem — a feature-rich dashboard enabling platform-wide user management, service verification, order tracking, content moderation, and real-time analytics. Integrated with the same Appwrite backend powering both Consumer and Provider apps for seamless data consistency across the entire Tallu platform."
+          features={["User Management", "Order Tracking", "Service Verification", "Content Moderation", "Real-time Analytics", "Appwrite Backend", "Reports Management", "Role-Based Access"]}
           stats={["Full Dashboard", "Cross-App Integration"]}
           link={{ href: "https://tallu-admin.speedforcehosting.com/dashboard", label: "View Dashboard" }}
         />
@@ -93,8 +93,8 @@ export default function Projects() {
             tag="React · TypeScript · Appwrite"
             title="HRMS System"
             subhead="Enterprise HR platform built from scratch"
-            desc="Architected and built a full Human Resource Management System — covering employee attendance with clock-in/out and break tracking, multi-stage leave management (Employee → Team Lead → HR), role-based dashboards for 4 user types, performance analytics, and strict governance (20 leave/year quota, 2/month cap)."
-            features={["Role-Based Auth", "Attendance Tracking", "Leave Governance", "Performance Analytics", "Neon DB + Prisma", "Vercel Deployed", "Data Export", "Enterprise Dashboards", "95% API Reduction"]}
+            desc="Architected and built a full Human Resource Management System — covering employee attendance with clock-in/out and break tracking, multi-stage leave management (Employee → Team Lead → HR), role-based dashboards for 4 user types, performance analytics, and strict governance."
+            features={["Role-Based Auth", "Attendance Tracking", "Leave Governance", "Performance Analytics", "Enterprise Dashboards", "95% API Reduction"]}
             stats={["4 User Roles", "24 DB Tables", "95% API Reduction"]}
             link={{ href: "https://hrms.speedforcehosting.com/", label: "View Live" }}
           />
@@ -115,8 +115,8 @@ export default function Projects() {
             image="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&q=80"
             tag="Flutter · In Progress"
             title="Qaider App"
-            subhead="Google Business Profile management — onboarding & audit"
-            desc="Recently onboarded onto the Qaider project — a Google Business Profile management platform built in Flutter (370+ Dart files, 45 cloud functions). Performed a full architecture audit identifying critical technical debt (579 hardcoded colors, 4,200+ raw layout values, 3 duplicate constant file pairs), delivered two complete redesign roadmaps (Figma MCP and manual), and shipped immediate UI fixes for render overflows and invisible navigation icons."
+            subhead="Google Business Profile management"
+            desc="Recently onboarded onto the Qaider project — a Google Business Profile management platform built in Flutter (370+ Dart files, 45 cloud functions). Performed a full architecture audit identifying critical technical debt, delivered two complete redesign roadmaps (Figma MCP and manual), and shipped immediate UI fixes."
             features={["Architecture Audit", "Redesign Roadmap", "UI/UX Fixes", "370+ Dart Files", "45 Cloud Functions", "In Progress"]}
           />
         </div>

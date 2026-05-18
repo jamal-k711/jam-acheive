@@ -2,32 +2,32 @@ const entries = [
   {
     month: "Dec 2025",
     title: "HRMS: Built from Scratch",
-    body: "Architected and shipped the full HRMS platform — a React + TypeScript + Appwrite enterprise system with clock-in/out attendance, multi-stage leave management (Employee → Team Lead → HR), role-based dashboards for 4 user types, performance analytics with decimal precision, and a company hierarchy visualizer with smooth animations. Optimized the system to reduce API calls by 95% (from 124K+ requests by fixing a critical memory leak), migrated the database to Neon with Prisma (24 tables), and deployed the entire platform to Vercel serverless.",
+    body: "Architected and shipped the full HRMS platform — a React + TypeScript + Appwrite enterprise system with clock-in/out attendance, multi-stage leave management (Employee → Team Lead → HR), role-based dashboards for 4 user types, performance analytics with decimal precision, and a company hierarchy visualizer with smooth animations.",
   },
   {
     month: "Jan 2026",
     title: "United Force Landing Page + Tallu Onboarding",
-    body: "Designed and delivered the complete United Force B2B industrial landing page — brand-consistent, with catalog browse, quote request, and WhatsApp CTA. Simultaneously onboarded onto the Tallu platform: built the Auth module with Country Code Picker, fixed Transport/Equipment tab logic and maps, optimized the Materials tab and Cart/Checkout state management, and unified Order UI to a receipt-style layout.",
+    body: "Designed and delivered the complete United Force B2B industrial landing page — brand-consistent, with catalog browse, quote request, and WhatsApp CTA. Simultaneously onboarded onto the Tallu platform: worked on the Auth module, Transport/Equipment and maps, optimized the Materials and Cart/Checkout management etc.",
   },
   {
     month: "Feb 2026",
     title: "Tallu Consumer App: Full UI Redesign",
-    body: "Redesigned the entire Tallu Consumer App from the ground up — Auth screens, Custom Fluid Clipper Bottom Navigation, Checkout & Order Success, Machinery, Location Picker, Request lifecycle screens (Pending → Completed), Delivery Tracking, Return/Extension flows, Cart, Work in Progress, and all Profile/Account/Security screens including Active Sessions and Login History.",
+    body: "Redesigned the entire Tallu Consumer App from the ground up — Auth screens, Custom Fluid Clipper Bottom Navigation, Checkout & Order Success, Machinery, Location Picker, Request lifecycle screens (Pending → Completed), Delivery Tracking, Return/Extension flows, Cart, Work in Progress, and all Profile/Account/Security screens.",
   },
   {
     month: "Mar 2026",
     title: "Tallu Provider App Redesign + Backend Migration",
-    body: "Redesigned the complete Tallu Provider App — Onboarding, Auth, KYC, Dashboard, Bottom Navigation, all Inventory modules (Equipment, Transport, Materials), Service tracking flows, Profile, Security, Earnings, and Orders. Simultaneously executed a full backend migration from Appwrite Cloud to a self-hosted server — resolving Auth/DB sync conflicts, restoring all category assets, deploying cloud functions, and adding 58 missing backend attributes.",
+    body: "Redesigned the complete Tallu Provider App — Onboarding, Auth, KYC, Dashboard, Bottom Navigation, all Inventory modules (Equipment, Transport, Materials), Service tracking flows, Profile, Security, Earnings, and Orders. Simultaneously executed a full backend migration from Appwrite Cloud to a self-hosted server — resolving Auth/DB sync conflicts, deploying cloud functions.",
   },
   {
     month: "Apr 2026",
     title: "Commission Wallet + Reports + RTL + Live GPS",
-    body: "Built the Commission Wallet system from scratch (dynamic rates, cloud functions for validation/acceptance/refund, transaction history, top-up request flow). Launched the Reports Module across both apps and the Admin Panel. Implemented 1,000+ EN/AR localization keys with full RTL layout support (custom RTLBackButton, directional layouts, icon flipping). Implemented two-phase Live GPS Tracking for Transport and Roadside Assistance. Added the Nearby Machinery map with Private Request flow.",
+    body: "Built the Commission Wallet system from scratch (dynamic rates, cloud functions for validation/acceptance, transaction history, top-up request flow). Launched the Reports Module across both apps and the Admin Panel. Implemented 1,000+ EN/AR localization keys with full RTL layout support. Implemented two-phase Live GPS Tracking for Transport and Roadside Assistance & Private Request flow.",
   },
   {
     month: "May 2026",
     title: "Firebase Notifications + Phone OTP + TestFlight + Qaider",
-    body: "Wired the complete Firebase FCM push notification system with deep-link routing across both apps. Replaced email password recovery with Firebase Phone OTP. Added Remember-me session persistence. Fixed 30+ notification routing bugs (duplicate banners, killed-app crashes, spam loops). Submitted Tallu Consumer and Provider TestFlight builds to the App Store. Onboarded onto Qaider — performed full architecture audit of 370+ Dart files and delivered redesign roadmaps.",
+    body: "Wired the complete Firebase FCM push notification system with deep-link routing across both apps. Replaced email password recovery with Firebase Phone OTP. Added Remember-me session persistence. Onboarded onto Qaider — performed full architecture audit of project files and delivered redesign roadmaps.",
   },
 ];
 
