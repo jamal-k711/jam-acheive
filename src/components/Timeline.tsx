@@ -1,76 +1,106 @@
-const entries = [
-  {
-    month: "Dec 2025",
-    title: "HRMS: Built from Scratch",
-    body: "Architected and shipped the full HRMS platform — a React + TypeScript + Appwrite enterprise system with clock-in/out attendance, multi-stage leave management (Employee → Team Lead → HR), role-based dashboards for 4 user types, performance analytics with decimal precision, and a company hierarchy visualizer with smooth animations.",
-  },
-  {
-    month: "Jan 2026",
-    title: "United Force Landing Page + Tallu Onboarding",
-    body: "Designed and delivered the complete United Force B2B industrial landing page — brand-consistent, with catalog browse, quote request, and WhatsApp CTA. Simultaneously onboarded onto the Tallu platform: worked on the Auth module, Transport/Equipment and maps, optimized the Materials and Cart/Checkout management etc.",
-  },
-  {
-    month: "Feb 2026",
-    title: "Tallu Consumer App: Full UI Redesign",
-    body: "Redesigned the entire Tallu Consumer App from the ground up — Auth screens, Custom Fluid Clipper Bottom Navigation, Checkout & Order Success, Machinery, Location Picker, Request lifecycle screens (Pending → Completed), Delivery Tracking, Return/Extension flows, Cart, Work in Progress, and all Profile/Account/Security screens.",
-  },
-  {
-    month: "Mar 2026",
-    title: "Tallu Provider App Redesign + Backend Migration",
-    body: "Redesigned the complete Tallu Provider App — Onboarding, Auth, KYC, Dashboard, Bottom Navigation, all Inventory modules (Equipment, Transport, Materials), Service tracking flows, Profile, Security, Earnings, and Orders. Simultaneously executed a full backend migration from Appwrite Cloud to a self-hosted server — resolving Auth/DB sync conflicts, deploying cloud functions.",
-  },
-  {
-    month: "Apr 2026",
-    title: "Commission Wallet + Reports + RTL + Live GPS",
-    body: "Built the Commission Wallet system from scratch (dynamic rates, cloud functions for validation/acceptance, transaction history, top-up request flow). Launched the Reports Module across both apps and the Admin Panel. Implemented 1,000+ EN/AR localization keys with full RTL layout support. Implemented two-phase Live GPS Tracking for Transport and Roadside Assistance & Private Request flow.",
-  },
-  {
-    month: "May 2026",
-    title: "Firebase Notifications + Phone OTP + TestFlight + Qaider",
-    body: "Wired the complete Firebase FCM push notification system with deep-link routing across both apps. Replaced email password recovery with Firebase Phone OTP. Added Remember-me session persistence. Onboarded onto Qaider — performed full architecture audit of project files and delivered redesign roadmaps.",
-  },
-];
+"use client";
+
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import ScrollReveal from "@/components/ui/ScrollReveal";
+import { timelineEntries } from "@/lib/data";
+
+function TimelineDot() {
+  return (
+    <motion.div
+      initial={{ scale: 0, opacity: 0 }}
+      whileInView={{ scale: 1, opacity: 1 }}
+      transition={{ type: "spring", stiffness: 200, damping: 20, delay: 0.2 }}
+      className="relative z-10"
+    >
+      <div className="w-4 h-4 rounded-full bg-red shadow-[0_0_12px_rgba(230,57,70,0.5)]" />
+      <div className="absolute inset-0 w-4 h-4 rounded-full bg-red/20 animate-ping" style={{ animationDuration: "2s" }} />
+    </motion.div>
+  );
+}
+
+function MetricPill({ label }: { label: string }) {
+  return (
+    <span className="px-3 py-1 rounded-full bg-indigo-dim text-indigo font-mono text-[10px] font-medium border border-indigo/10">
+      {label}
+    </span>
+  );
+}
 
 export default function Timeline() {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"],
+  });
+
+  const lineHeight = useTransform(scrollYProgress, [0, 0.9], ["0%", "100%"]);
+
   return (
-    <section id="timeline" className="py-16 md:py-[100px]" style={{ background: "var(--color-navy)" }}>
-      <div className="max-w-[1140px] mx-auto px-5">
-        <p className="font-display font-semibold text-[11px] text-orange uppercase tracking-widest mb-3 animate-on-scroll">MY JOURNEY</p>
-        <h2 className="font-display font-bold text-[32px] md:text-[48px] leading-tight mb-10 animate-on-scroll" style={{ transitionDelay: "0.1s" }}>
-          6 months. 5 projects. Consistent delivery.
-        </h2>
+    <section id="timeline" className="py-20 md:py-[120px] relative" ref={sectionRef}>
+      <div className="max-w-[1200px] mx-auto px-6">
+        <ScrollReveal>
+          <span className="section-label">MY JOURNEY</span>
+        </ScrollReveal>
+
+        <ScrollReveal delay={0.1}>
+          <h2 className="font-display font-bold text-[36px] md:text-[52px] leading-tight text-primary mb-16">
+            6 months. 5 projects. Consistent delivery.
+          </h2>
+        </ScrollReveal>
+
         <div className="relative">
-          <div className="hidden md:block absolute top-0 bottom-0 left-1/2 w-px -translate-x-1/2" style={{ background: "var(--color-divider)" }} />
+          {/* Scroll-driven red line */}
+          <div className="hidden md:block absolute top-0 bottom-0 left-1/2 w-px -translate-x-1/2 bg-[var(--border)] overflow-hidden">
+            <motion.div
+              className="w-full bg-red origin-top"
+              style={{ scaleY: lineHeight, height: "100%" }}
+            />
+          </div>
 
-          {entries.map((e, i) => (
-            <div
-              key={e.month}
-              className="grid grid-cols-1 md:grid-cols-[1fr_60px_1fr] items-start mb-6 xs:mb-8 md:mb-12 relative pl-8 md:pl-0 animate-on-scroll"
-              style={{ transitionDelay: `${0.15 + i * 0.1}s` }}
-            >
-              {/* Desktop spacer */}
-              <div className="hidden md:block" />
-
-              {/* Desktop dot */}
-              <div className="hidden md:block w-4 h-4 rounded-full bg-orange border-3 border-navy shadow-[0_0_0_4px_rgba(255,122,26,0.25)] mx-auto mt-5 relative z-10" />
-
-              {/* Mobile dot + line */}
-              <div className="absolute left-0 top-[22px] w-3 h-3 rounded-full bg-orange border-2 border-navy shadow-[0_0_0_3px_rgba(255,122,26,0.25)] md:hidden" />
-
+          {timelineEntries.map((e, i) => {
+            const isLeft = i % 2 === 0;
+            return (
               <div
-                className="p-4 xs:p-5 md:p-7 rounded-card border border-divider transition-all duration-300 hover:border-orange/40 hover:scale-[1.02] hover:-translate-y-1 group relative overflow-hidden"
-                style={{
-                  background: "var(--color-navy-light)",
-                  gridColumn: i % 2 === 0 ? "3" : "1",
-                }}
+                key={e.month}
+                className="grid grid-cols-1 md:grid-cols-[1fr_60px_1fr] items-start mb-10 md:mb-14 relative pl-8 md:pl-0"
               >
-                <div className="progress-line" />
-                <p className="font-display font-bold text-[12px] text-orange uppercase tracking-widest mb-2">{e.month}</p>
-                <h3 className="font-display font-bold text-lg leading-tight mb-2.5">{e.title}</h3>
-                <p className="text-muted font-body text-sm leading-relaxed">{e.body}</p>
+                {/* Desktop spacer */}
+                <div className="hidden md:block" />
+
+                {/* Desktop dot */}
+                <div className="hidden md:flex justify-center">
+                  <TimelineDot />
+                </div>
+
+                {/* Mobile dot */}
+                <div className="absolute left-0 top-[22px] md:hidden">
+                  <TimelineDot />
+                </div>
+
+                <motion.div
+                  initial={{ opacity: 0, x: isLeft ? -30 : 30, y: 20 }}
+                  whileInView={{ opacity: 1, x: 0, y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ type: "spring", stiffness: 120, damping: 20, delay: 0.15 }}
+                  className="p-6 rounded-card border border-[var(--border)] hover:border-red/30 transition-all duration-300 bg-[var(--bg-surface)] group relative overflow-hidden"
+                  style={{ gridColumn: isLeft ? "1" : "3" }}
+                >
+                  <div className="progress-line" />
+                  <span className="font-mono font-medium text-[11px] text-red uppercase tracking-widest mb-2 block">
+                    {e.month}
+                  </span>
+                  <h3 className="font-display font-bold text-lg text-primary mb-2">{e.title}</h3>
+                  <p className="text-secondary font-body text-sm leading-relaxed mb-4">{e.body}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {e.metrics.map((m) => (
+                      <MetricPill key={m} label={m} />
+                    ))}
+                  </div>
+                </motion.div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

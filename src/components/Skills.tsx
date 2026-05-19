@@ -1,99 +1,119 @@
-import {
-  Smartphone, Code, Apple, Languages, AlignLeft, MapPin, Server, Zap, Bell,
-  Cloud, Link, Radio, HardDrive, Globe, FileText, Layout, Database, Palette,
-  GitBranch, Terminal, Monitor, PenTool, PlayCircle, Trello,
-} from "lucide-react";
+"use client";
 
-const categories = [
-  {
-    name: "Mobile",
-    icon: Smartphone,
-    skills: [
-      { icon: Smartphone, label: "Flutter" },
-      { icon: Code, label: "Dart" },
-      { icon: Apple, label: "iOS (Xcode)" },
-      { icon: Smartphone, label: "Android" },
-      { icon: Languages, label: "ARB / Localization" },
-      { icon: AlignLeft, label: "RTL Design" },
-      { icon: MapPin, label: "GPS Tracking" },
-    ],
-  },
-  {
-    name: "Backend & Cloud",
-    icon: Server,
-    skills: [
-      { icon: Server, label: "Appwrite" },
-      { icon: Zap, label: "Firebase" },
-      { icon: Bell, label: "FCM / APNs" },
-      { icon: Cloud, label: "Cloud Functions" },
-      { icon: Link, label: "REST APIs" },
-      { icon: Radio, label: "Real-time Subscriptions" },
-      { icon: HardDrive, label: "Appwrite Storage" },
-    ],
-  },
-  {
-    name: "Web & Frontend",
-    icon: Globe,
-    skills: [
-      { icon: Code, label: "React" },
-      { icon: FileText, label: "TypeScript" },
-      { icon: Globe, label: "Next.js" },
-      { icon: Layout, label: "HTML / CSS / JS" },
-      { icon: Database, label: "Neon DB + Prisma" },
-      { icon: Cloud, label: "Vercel Serverless" },
-      { icon: Palette, label: "Tailwind CSS" },
-    ],
-  },
-  {
-    name: "Tools & Process",
-    icon: GitBranch,
-    skills: [
-      { icon: GitBranch, label: "Git / GitHub" },
-      { icon: Terminal, label: "Android Studio" },
-      { icon: Monitor, label: "Xcode" },
-      { icon: PenTool, label: "Figma" },
-      { icon: PlayCircle, label: "Google Play Console" },
-      { icon: Smartphone, label: "TestFlight / App Store" },
-      { icon: Trello, label: "Jira" },
-    ],
-  },
-];
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import ScrollReveal from "@/components/ui/ScrollReveal";
+import { skillCategories, skillTabs, skillCategoryMap } from "@/lib/data";
+
+function MasteryDots({ level }: { level: number }) {
+  return (
+    <div className="flex gap-1">
+      {Array.from({ length: 5 }).map((_, i) => (
+        <div
+          key={i}
+          className={`w-[6px] h-[6px] rounded-full transition-colors duration-300 ${
+            i < level ? "bg-red" : "bg-[var(--border)]"
+          }`}
+        />
+      ))}
+    </div>
+  );
+}
 
 export default function Skills() {
+  const [activeTab, setActiveTab] = useState<string>("All");
+  const filtered = skillCategoryMap[activeTab] || [];
+
+  // Get mastery for each skill (flatten from categories)
+  const masteryMap: Record<string, number> = {};
+  skillCategories.forEach((cat) => {
+    Object.entries(cat.mastery).forEach(([name, level]) => {
+      masteryMap[name] = level;
+    });
+  });
+
   return (
-    <section id="skills" className="py-16 md:py-[100px]" style={{ background: "var(--color-navy-mid)" }}>
-      <div className="max-w-[1140px] mx-auto px-5">
-        <p className="font-display font-semibold text-[11px] text-orange uppercase tracking-widest mb-3 animate-on-scroll">TECHNICAL BREADTH</p>
-        <h2 className="font-display font-bold text-[32px] md:text-[48px] leading-tight mb-10 animate-on-scroll" style={{ transitionDelay: "0.1s" }}>
-          From pixel to production.
-        </h2>
-        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 xs:gap-5 lg:gap-6">
-          {categories.map((cat, ci) => (
-            <div
-              key={cat.name}
-              className="animate-on-scroll"
-              style={{ transitionDelay: `${0.15 + ci * 0.1}s` }}
-            >
-              <h4
-                className="font-display font-semibold text-sm uppercase tracking-wider pb-3 mb-4"
-                style={{
-                  color: "var(--color-white)",
-                  borderBottom: "1px solid var(--color-divider)",
-                }}
-              >
-                {cat.name}
-              </h4>
-              {cat.skills.map((s) => (
-                <span
-                  key={s.label}
-                  className="inline-flex items-center gap-1.5 px-4 py-2 m-1 border border-divider rounded-pill font-body font-medium text-xs text-muted transition-all hover:bg-orange-dim hover:border-orange hover:text-orange cursor-default"
-                >
-                  <s.icon size={14} strokeWidth={1.5} />
-                  {s.label}
-                </span>
-              ))}
+    <section id="skills" className="py-20 md:py-[120px]">
+      <div className="max-w-[1200px] mx-auto px-6">
+        <ScrollReveal>
+          <span className="section-label">TECHNICAL BREADTH</span>
+        </ScrollReveal>
+
+        <ScrollReveal delay={0.1}>
+          <h2 className="font-display font-bold text-[36px] md:text-[52px] leading-tight text-primary mb-12">
+            From pixel to production.
+          </h2>
+        </ScrollReveal>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          {/* Left: Mastery grid */}
+          <ScrollReveal delay={0.2} direction="left">
+            <div>
+              <p className="text-muted font-mono text-[10px] uppercase tracking-widest mb-4">
+                Proficiency
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {skillCategories.map((cat) => (
+                  <div key={cat.name}>
+                    <p className="text-primary font-display font-semibold text-xs uppercase tracking-wider mb-3 text-muted">
+                      {cat.name}
+                    </p>
+                    <div className="space-y-2.5">
+                      {cat.items.map((skill) => (
+                        <div key={skill} className="flex items-center justify-between group">
+                          <span className="text-secondary font-body text-xs font-medium group-hover:text-primary transition-colors">
+                            {skill}
+                          </span>
+                          <MasteryDots level={masteryMap[skill] || 3} />
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
-          ))}
+          </ScrollReveal>
+
+          {/* Right: Filter pills with animation */}
+          <ScrollReveal delay={0.2} direction="right">
+            <div>
+              {/* Filter tabs */}
+              <div className="flex items-center gap-2 mb-6">
+                {skillTabs.map((tab) => (
+                  <button
+                    key={tab}
+                    onClick={() => setActiveTab(tab)}
+                    className={`px-4 py-1.5 rounded-full text-xs font-mono font-medium transition-all duration-300 ${
+                      activeTab === tab
+                        ? "bg-red text-white"
+                        : "text-secondary border border-[var(--border)] hover:border-red/30 hover:text-primary"
+                    }`}
+                  >
+                    {tab}
+                  </button>
+                ))}
+              </div>
+
+              {/* Animated skill pills */}
+              <div className="flex flex-wrap gap-2 min-h-[120px]">
+                <AnimatePresence mode="popLayout">
+                  {filtered.map((skill) => (
+                    <motion.span
+                      key={skill}
+                      layout
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0.8 }}
+                      transition={{ type: "spring", stiffness: 300, damping: 25 }}
+                      className="px-4 py-2 rounded-full border border-[var(--border)] text-secondary font-body text-xs font-medium hover:border-red/40 hover:text-primary hover:shadow-[0_0_12px_var(--red-glow)] transition-all cursor-default"
+                    >
+                      {skill}
+                    </motion.span>
+                  ))}
+                </AnimatePresence>
+              </div>
+            </div>
+          </ScrollReveal>
         </div>
       </div>
     </section>
