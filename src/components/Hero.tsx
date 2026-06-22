@@ -9,8 +9,8 @@ import ParticleMesh from "@/components/three/ParticleMesh";
 
 const heroLines = [
   "6 projects. 6 months. Zero missed sprints.",
-  "Built production apps used across Saudi Arabia.",
-  "Flutter · React · Appwrite · Firebase · RTL/Arabic",
+  "End-to-end product delivery — design, build, ship, iterate.",
+  "Flutter · Next.js · React.js · Firebase · Appwrite",
 ];
 
 const nameChars = "AMIR JAMAL\nALI KHAN".split("");
@@ -44,7 +44,7 @@ export default function Hero() {
       <div className="relative z-10 text-center px-6 max-w-[900px] mx-auto">
         <ScrollReveal delay={0.1}>
           <span className="inline-block px-4 py-1.5 rounded-full border border-indigo/30 text-indigo font-mono text-[11px] font-medium tracking-wider">
-            AI Engineer & Flutter Developer @ SpeedForce Digital
+            AI Engineer / Flutter Developer @ SpeedForce Digital
           </span>
         </ScrollReveal>
 
@@ -107,7 +107,7 @@ export default function Hero() {
           </MagneticButton>
           <MagneticButton href="#reports">
             <span className="inline-flex items-center gap-2 px-8 py-3.5 bg-transparent text-primary border border-[var(--glass-border)] rounded-full font-body font-semibold text-sm hover:border-red hover:text-red transition-all">
-              Download ABCD Reports
+              Sprint Reports
             </span>
           </MagneticButton>
         </motion.div>

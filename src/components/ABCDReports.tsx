@@ -64,28 +64,29 @@ export default function ABCDReports() {
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.3 }}
           >
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
               {[
-                { key: "A", label: "Achievement", content: abcdSprints[activeTab].achievement },
-                { key: "B", label: "Benefit", content: abcdSprints[activeTab].benefit },
-                { key: "C", label: "Concern", content: abcdSprints[activeTab].concern },
+                { key: "A", label: "Achievement", content: abcdSprints[activeTab].achievement, muted: false },
+                { key: "B", label: "Benefit", content: abcdSprints[activeTab].benefit, muted: false },
+                { key: "C", label: "Concern", content: abcdSprints[activeTab].concern, muted: true },
+                { key: "D", label: "Do Next", content: abcdSprints[activeTab].doNext, muted: false },
               ].map((item) => (
                 <div
                   key={item.key}
-                  className="p-6 md:p-8 rounded-card border border-[var(--border)] bg-[var(--bg-surface)] relative overflow-hidden group hover:border-red/20 transition-colors"
+                  className="p-5 md:p-8 rounded-card border border-[var(--border)] bg-[var(--bg-surface)] relative overflow-hidden group hover:border-red/20 transition-colors"
                 >
                   {/* Large letter background */}
                   <span
-                    className="absolute top-0 right-4 font-display font-black text-[160px] leading-none text-[var(--border)] select-none pointer-events-none"
+                    className="absolute -top-2 right-2 font-display font-black text-[120px] md:text-[160px] leading-none text-[var(--border)] select-none pointer-events-none"
                     style={{ lineHeight: "0.7" }}
                   >
                     {item.key}
                   </span>
 
                   <div className="relative z-10">
-                    <span className="section-label block mb-3">{item.label}</span>
+                    <span className="section-label block mb-2 md:mb-3">{item.label}</span>
                     <p className={`text-sm leading-relaxed font-body ${
-                      item.key === "C" ? "text-secondary italic" : "text-primary"
+                      item.muted ? "text-secondary italic" : "text-primary"
                     }`}>
                       {item.content}
                     </p>

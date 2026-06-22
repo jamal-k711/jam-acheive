@@ -56,7 +56,7 @@ export default function Footer() {
               href="#reports"
               className="text-secondary hover:text-red transition-colors text-sm font-body"
             >
-              Download Reports
+              Sprint Reports
             </a>
           </div>
         </ScrollReveal>

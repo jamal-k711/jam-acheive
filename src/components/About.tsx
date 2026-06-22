@@ -28,7 +28,7 @@ export default function About() {
                 I joined SPEEDFORCE DIGITAL as an AI Engineer and grew rapidly into a
                 full-stack mobile and web contributor &mdash; owning everything from
                 enterprise HR system architecture to pixel-perfect Flutter app redesigns,
-                Arabic RTL localization, live GPS tracking, and cloud function deployment.
+                Arabic RTL localization, live GPS tracking, and full-stack backend architecture.
               </p>
             </ScrollReveal>
 

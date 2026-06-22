@@ -76,7 +76,7 @@ export default function Nav() {
               href="#reports"
               className="px-5 py-2 rounded-full border border-red text-red text-sm font-body font-medium hover:bg-red hover:text-white transition-all duration-300"
             >
-              Download Reports
+              Sprint Reports
             </a>
           </div>
 
@@ -127,7 +127,7 @@ export default function Nav() {
               }}
               className="mt-4 px-6 py-3 rounded-full border border-red text-red text-base font-body font-medium"
             >
-              Download Reports
+              Sprint Reports
             </motion.a>
           </motion.div>
         </motion.div>

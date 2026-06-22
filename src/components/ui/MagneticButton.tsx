@@ -33,8 +33,13 @@ export default function MagneticButton({ children, className = "", href, onClick
     y.set(0);
   };
 
+  const isExternal = href && !href.startsWith("#");
   const Tag = href ? "a" : "button";
-  const extraProps = href ? { href, target: "_blank", rel: "noopener noreferrer" } : { onClick };
+  const extraProps = href
+    ? isExternal
+      ? { href, target: "_blank", rel: "noopener noreferrer" }
+      : { href }
+    : { onClick };
 
   return (
     <motion.div
