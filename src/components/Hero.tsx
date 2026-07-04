@@ -8,7 +8,7 @@ import MagneticButton from "@/components/ui/MagneticButton";
 import ParticleMesh from "@/components/three/ParticleMesh";
 
 const heroLines = [
-  "6 projects. 6 months. Zero missed sprints.",
+  "7 months. 7 projects. Zero missed sprints.",
   "End-to-end product delivery — design, build, ship, iterate.",
   "Flutter · Next.js · React.js · Firebase · Appwrite",
 ];

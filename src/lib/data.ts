@@ -1,14 +1,14 @@
 export const heroStrings = [
-  "6 projects. 6 months. Zero missed sprints.",
+  "7 months. 7 projects. Zero missed sprints.",
   "Built production apps used across Saudi Arabia.",
   "Flutter · React · Appwrite · Firebase · RTL/Arabic",
 ];
 
 export const stats = [
-  { target: 5, suffix: "+", label: "Production Projects Delivered" },
+  { target: 7, suffix: "+", label: "Production Projects Delivered" },
   { target: 300, suffix: "+", label: "Screens Designed & Redesigned" },
   { target: 12, suffix: "+", label: "Microservices Deployed" },
-  { target: 6, suffix: "", label: "Months of Continuous Delivery" },
+  { target: 7, suffix: "", label: "Months of Continuous Delivery" },
   { target: 4, suffix: "", label: "HRMS Roles Built" },
   { target: 2, suffix: "", label: "App Store Launches" },
 ];
@@ -31,39 +31,45 @@ export const techStack = [
 export const timelineEntries = [
   {
     month: "Dec 2025",
-    title: "HRMS: Built from Scratch",
-    body: "Architected and shipped the full HRMS platform — a React + TypeScript + Appwrite enterprise system with clock-in/out attendance, multi-stage leave management, role-based dashboards for 4 user types, performance analytics, and a company hierarchy visualizer.",
+    title: "HRMS: Enterprise HR from Zero",
+    body: "Built a full enterprise HR platform — attendance tracking, multi-stage leave approval, performance analytics, and role-based dashboards for four user types.",
     metrics: ["95% API Reduction", "4 User Roles", "24 DB Tables"],
   },
   {
     month: "Jan 2026",
-    title: "United Force + Tallu Onboarding",
-    body: "Designed and delivered the complete United Force B2B landing page — brand-consistent, with catalog browse, quote request, and WhatsApp CTA. Onboarded onto the Tallu platform: Auth module, Transport/Equipment maps, optimized Materials and Cart/Checkout.",
-    metrics: ["B2B Landing Page", "Auth Module", "Cart Optimization"],
+    title: "United Force + Tallu Kickoff",
+    body: "Delivered the United Force B2B industrial landing page end-to-end, then onboarded onto the Tallu platform — building the Auth module and unifying the cart and order experience.",
+    metrics: ["B2B Landing Page", "Auth Module", "Cart Redesign"],
   },
   {
     month: "Feb 2026",
-    title: "Tallu Consumer: Full UI Redesign",
-    body: "Redesigned the entire Tallu Consumer App from the ground up — all Auth screens, Custom Fluid Clipper Bottom Navigation, Checkout & Order Success, Machinery, Location Picker, Request lifecycle, Delivery Tracking, Return/Extension flows, Cart, and Profile screens.",
-    metrics: ["100+ Screens", "Full Redesign", "iOS & Android"],
+    title: "Tallu Consumer: Full Redesign",
+    body: "Redesigned the entire Tallu Consumer App — Auth, custom bottom navigation, checkout, machinery and location flows, request lifecycle, delivery tracking, and dark theme across iOS and Android.",
+    metrics: ["100+ Screens", "iOS & Android", "Dark Mode"],
   },
   {
     month: "Mar 2026",
-    title: "Provider Redesign + Backend Migration",
-    body: "Redesigned the complete Tallu Provider App — Onboarding, Auth, KYC, Dashboard, all Inventory modules, Service tracking flows, Profile, Security, Earnings, and Orders. Executed full backend migration from Appwrite Cloud to self-hosted server.",
-    metrics: ["100+ Screens", "Backend Migration", "Auth/DB Sync"],
+    title: "Tallu Provider + Backend Migration",
+    body: "Redesigned the complete Provider App — onboarding, KYC, dashboard, all inventory modules, and earnings. Migrated the backend from Appwrite Cloud to a self-hosted server.",
+    metrics: ["Provider App", "Self-Hosted Backend", "58 DB Attributes"],
   },
   {
     month: "Apr 2026",
-    title: "Wallet + Reports + RTL + Live GPS",
-    body: "Built the Commission Wallet system from scratch with dynamic rates, cloud functions, transaction history, and top-up requests. Launched the Reports Module across both apps and Admin Panel. Implemented 1,000+ EN/AR localization keys with full RTL. Two-phase Live GPS Tracking.",
+    title: "Wallet, RTL & Live Tracking",
+    body: "Built the Commission Wallet with dynamic cloud functions, shipped 1,000+ EN/AR localization keys with full RTL support, and implemented two-phase live GPS tracking.",
     metrics: ["Commission Wallet", "1,000+ Locale Keys", "Live GPS"],
   },
   {
     month: "May 2026",
-    title: "Firebase Notifications + Qaider",
-    body: "Wired the complete Firebase FCM push notification system with deep-link routing across both apps. Replaced email password recovery with Firebase Phone OTP. Added Remember-me session persistence. Onboarded onto Qaider — performed full architecture audit.",
-    metrics: ["FCM + Deep Links", "Phone OTP", "Architecture Audit"],
+    title: "Qaider: Architecture & Redesign",
+    body: "Performed a full architecture audit across 370+ files, eliminated 5,070+ analyzer errors, centralized 2,500+ hardcoded color references, and completed a multi-phase UI redesign.",
+    metrics: ["370 Files Audited", "Zero Analyzer Errors", "Full Redesign"],
+  },
+  {
+    month: "Jun 2026",
+    title: "ECS Workforce: Full Stack in a Sprint",
+    body: "Scaffolded the complete ECS Workforce system — Flutter app with GPS geofencing and Saudi labor law leave engine, NestJS backend with 11 DB migrations, and a bilingual shadcn admin dashboard.",
+    metrics: ["Flutter + NestJS", "GPS Geofencing", "Bilingual RTL/LTR"],
   },
 ];
 
@@ -85,8 +91,8 @@ export const skillCategories = [
   },
   {
     name: "Tools & Process",
-    items: ["Git / GitHub", "Android Studio", "Xcode", "Figma", "Google Play Console", "TestFlight", "Jira"],
-    mastery: { "Git / GitHub": 4, "Android Studio": 4, Xcode: 3, Figma: 4, "Google Play Console": 3, TestFlight: 4, Jira: 3 },
+    items: ["Git / GitHub", "Android Studio", "Xcode", "Figma", "Google Play Console", "Jira"],
+    mastery: { "Git / GitHub": 4, "Android Studio": 4, Xcode: 3, Figma: 4, "Google Play Console": 3, Jira: 3 },
   },
 ];
 
@@ -96,11 +102,11 @@ export const skillCategoryMap: Record<string, string[]> = {
   All: ["Flutter", "Dart", "iOS (Xcode)", "Android", "ARB / Localization", "RTL Design", "GPS Tracking",
         "Appwrite", "Firebase", "FCM / APNs", "Cloud Functions", "REST APIs", "Real-time", "Appwrite Storage",
         "React", "TypeScript", "Next.js", "HTML / CSS / JS", "Neon DB + Prisma", "Vercel Serverless", "Tailwind CSS",
-        "Git / GitHub", "Android Studio", "Xcode", "Figma", "Google Play Console", "TestFlight", "Jira"],
+        "Git / GitHub", "Android Studio", "Xcode", "Figma", "Google Play Console", "Jira"],
   Mobile: ["Flutter", "Dart", "iOS (Xcode)", "Android", "ARB / Localization", "RTL Design", "GPS Tracking"],
   Backend: ["Appwrite", "Firebase", "FCM / APNs", "Cloud Functions", "REST APIs", "Real-time", "Appwrite Storage"],
   Web: ["React", "TypeScript", "Next.js", "HTML / CSS / JS", "Neon DB + Prisma", "Vercel Serverless", "Tailwind CSS"],
-  Tools: ["Git / GitHub", "Android Studio", "Xcode", "Figma", "Google Play Console", "TestFlight", "Jira"],
+  Tools: ["Git / GitHub", "Android Studio", "Xcode", "Figma", "Google Play Console", "Jira"],
 };
 
 export const activities = [
@@ -235,6 +241,16 @@ export const projects = {
       subhead: "Saudi Arabia B2B industrial landing page",
       desc: "A product showcase website for industrial equipment — browse what's available, request a price quote, and connect with the team directly on WhatsApp.",
       features: ["Equipment Catalog", "Quote Request", "CTA Integration", "B2B Landing Page"],
+    },
+    {
+      id: "ecs-workforce",
+      number: "07",
+      tag: "Flutter · NestJS · Next.js",
+      title: "ECS Workforce",
+      subhead: "Full-stack workforce management system for Saudi enterprises",
+      desc: "A workforce management system for Saudi enterprises — GPS-geofenced check-in, bilingual leave management with Saudi labor law enforcement, and a full admin dashboard.",
+      features: ["Flutter", "NestJS", "PostgreSQL", "Next.js", "Docker", "FCM", "Bilingual RTL/LTR"],
+      stats: ["3 App Layers", "11 DB Migrations", "GPS Geofencing"],
     },
   ],
 };

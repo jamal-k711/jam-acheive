@@ -30,7 +30,7 @@ export default function Footer() {
           </p>
 
           <p className="text-muted font-mono text-sm mt-3">
-            December 2025 – June 2026
+            December 2025 – Present
           </p>
 
           <div className="flex items-center justify-center gap-6 mt-8">

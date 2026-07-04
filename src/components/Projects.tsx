@@ -28,7 +28,7 @@ export default function Projects() {
 
         <ScrollReveal delay={0.1}>
           <h2 className="font-display font-bold text-[36px] md:text-[52px] leading-tight text-primary mb-12">
-            6 projects. Real users. Shipped.
+            7 projects. Real users. Shipped.
           </h2>
         </ScrollReveal>
 
