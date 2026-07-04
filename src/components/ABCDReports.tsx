@@ -15,23 +15,12 @@ export default function ABCDReports() {
         </ScrollReveal>
 
         <ScrollReveal delay={0.2}>
-          <p className="text-secondary font-body text-base leading-relaxed max-w-[640px] mb-8">
+          <p className="text-secondary font-body text-base leading-relaxed max-w-[640px] mb-10">
             Weekly ABCD reports — Achievement, Benefit, Concern, Do Next — maintained every sprint across all 7 projects.
           </p>
         </ScrollReveal>
 
         <ScrollReveal delay={0.3}>
-          <a
-            href="/reports/ABCD_Report.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-8 py-3.5 bg-red text-white rounded-full font-body font-semibold text-sm hover:shadow-lg hover:shadow-red/30 transition-all mb-10"
-          >
-            ↓ Download Sprint Reports
-          </a>
-        </ScrollReveal>
-
-        <ScrollReveal delay={0.4}>
           <div className="flex flex-wrap items-center justify-center gap-3">
             <span className="px-4 py-2 rounded-full border border-[var(--border)] text-secondary font-mono text-xs font-medium">
               20+ Sprint Reports
